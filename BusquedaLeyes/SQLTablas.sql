@@ -1,0 +1,53 @@
+﻿CREATE TABLE IF NOT EXISTS `CONCEPTOS_BUSQUEDAS` (
+  `id_busquedas` INTEGER PRIMARY KEY  AUTOINCREMENT NOT NULL,
+  `concepto` VARCHAR(100) NULL);
+
+CREATE TABLE IF NOT EXISTS `DATOS` (
+  `id_leyes` VARCHAR(6)  PRIMARY KEY NOT NULL,
+  `documento` VARCHAR(100) NOT NULL,
+  `noArticulo` INT NOT NULL,
+  `contenido` TEXT NOT NULL
+  );
+
+CREATE TABLE IF NOT EXISTS `DATOS_CONCEPTOBUSQUEDA` (
+  `FK_id_busqueda` INTEGER NOT NULL,
+  `FK_id_leyes` VARCHAR(6) NOT NULL,
+  FOREIGN KEY(FK_id_leyes) REFERENCES DATOS(id_leyes),
+  FOREIGN KEY(FK_id_busqueda) REFERENCES CONCEPTOS_BUSQUEDAS(id_busquedas)
+)
+
+
+CREATE TABLE IF NOT EXISTS `DATOS_CONCEPTOBUSQUEDA` (
+  `FK_id_busqueda` INTEGER NOT NULL CONSTRAINT FK_id_busqueda REFERENCES CONCEPTOS_BUSQUEDAS(id_busquedas) ON DELETE CASCADE,
+  `FK_id_leyes` VARCHAR(6) NOT NULL CONSTRAINT FK_id_leyes REFERENCES DATOS(id_leyes) ON DELETE CASCADE
+)
+CREATE TABLE intermedia
+------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `CONCEPTOS_BUSQUEDAS` (
+  `id_busquedas` INTEGER PRIMARY KEY  AUTOINCREMENT NOT NULL,
+  `concepto` VARCHAR(100) NULL) 
+
+CREATE TABLE IF NOT EXISTS `DATOS` (
+  `id_leyes` VARCHAR(6)  PRIMARY KEY NOT NULL,
+  `documento` VARCHAR(100) NOT NULL,
+  `noArticulo` INT NOT NULL
+  ) 
+CREATE TABLE IF NOT EXISTS `ContenidoDatos`(
+  `FK_id_leyes` VARCHAR(6) NOT NULL CONSTRAINT FK_id_leyes REFERENCES DATOS(id_leyes) ON DELETE CASCADE,
+  `contenido` TEXT NOT NULL
+) 
+CREATE TABLE IF NOT EXISTS `DATOS_CONCEPTOBUSQUEDA` (
+  `FK_id_busqueda` INTEGER NOT NULL CONSTRAINT FK_id_busqueda REFERENCES CONCEPTOS_BUSQUEDAS(id_busquedas) ON DELETE CASCADE,
+  `FK_id_leyes` VARCHAR(6) NOT NULL CONSTRAINT FK_id_leyes REFERENCES DATOS(id_leyes) ON DELETE CASCADE
+) 
+
+
+
+---------------------------------------------------------------
+Select * FROM DATOS WHERE id_leyes in (
+select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda=1)
+
+
+
+
+
