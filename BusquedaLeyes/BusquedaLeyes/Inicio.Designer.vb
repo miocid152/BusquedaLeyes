@@ -22,16 +22,17 @@ Partial Class Inicio
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ListViewItem7 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Acuerdo para la modernización integral de la ind. azu.")
-        Dim ListViewItem8 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Constitución política de los Estados Unidos Mexicanos")
-        Dim ListViewItem9 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Contrato Ley")
-        Dim ListViewItem10 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Ley federal del trabajo")
-        Dim ListViewItem11 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Plan rector")
-        Dim ListViewItem12 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Todos")
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Acuerdo para la modernización integral de la ind. azu.")
+        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Constitución política de los Estados Unidos Mexicanos")
+        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Contrato Ley")
+        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Ley federal del trabajo")
+        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Plan rector")
+        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Todos")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HerramientasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerManualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,7 +45,6 @@ Partial Class Inicio
         Me.lblArticulos = New System.Windows.Forms.Label()
         Me.txbArticulo = New System.Windows.Forms.TextBox()
         Me.btnAnadirLista = New System.Windows.Forms.Button()
-        Me.VerListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblDocumentoTitulo = New System.Windows.Forms.Label()
         Me.lblDocumentoVar = New System.Windows.Forms.Label()
         Me.lblConceptoBusqueda = New System.Windows.Forms.Label()
@@ -62,7 +62,7 @@ Partial Class Inicio
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalirToolStripMenuItem.Text = "&Salir"
         '
         'HerramientasToolStripMenuItem
@@ -71,6 +71,12 @@ Partial Class Inicio
         Me.HerramientasToolStripMenuItem.Name = "HerramientasToolStripMenuItem"
         Me.HerramientasToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.HerramientasToolStripMenuItem.Text = "&Mi Lista"
+        '
+        'VerListaToolStripMenuItem
+        '
+        Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
+        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'AyudaToolStripMenuItem1
         '
@@ -82,13 +88,13 @@ Partial Class Inicio
         'VerManualToolStripMenuItem
         '
         Me.VerManualToolStripMenuItem.Name = "VerManualToolStripMenuItem"
-        Me.VerManualToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerManualToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.VerManualToolStripMenuItem.Text = "Ver &Manual"
         '
         'AcercaDeToolStripMenuItem1
         '
         Me.AcercaDeToolStripMenuItem1.Name = "AcercaDeToolStripMenuItem1"
-        Me.AcercaDeToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AcercaDeToolStripMenuItem1.Size = New System.Drawing.Size(135, 22)
         Me.AcercaDeToolStripMenuItem1.Text = "A&cerca de..."
         '
         'MenuPrincipal
@@ -103,18 +109,18 @@ Partial Class Inicio
         '
         'lvwDocumentos
         '
-        Me.lvwDocumentos.Cursor = System.Windows.Forms.Cursors.Default
+        Me.lvwDocumentos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lvwDocumentos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lvwDocumentos.HideSelection = False
-        ListViewItem7.Checked = True
-        ListViewItem7.StateImageIndex = 1
-        ListViewItem8.StateImageIndex = 0
-        ListViewItem9.StateImageIndex = 0
-        ListViewItem10.StateImageIndex = 0
-        ListViewItem11.StateImageIndex = 0
-        ListViewItem12.Checked = True
-        ListViewItem12.StateImageIndex = 1
-        Me.lvwDocumentos.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem7, ListViewItem8, ListViewItem9, ListViewItem10, ListViewItem11, ListViewItem12})
+        ListViewItem1.Checked = True
+        ListViewItem1.StateImageIndex = 1
+        ListViewItem2.StateImageIndex = 0
+        ListViewItem3.StateImageIndex = 0
+        ListViewItem4.StateImageIndex = 0
+        ListViewItem5.StateImageIndex = 0
+        ListViewItem6.Checked = True
+        ListViewItem6.StateImageIndex = 1
+        Me.lvwDocumentos.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5, ListViewItem6})
         Me.lvwDocumentos.Location = New System.Drawing.Point(5, 51)
         Me.lvwDocumentos.MultiSelect = False
         Me.lvwDocumentos.Name = "lvwDocumentos"
@@ -126,21 +132,23 @@ Partial Class Inicio
         '
         'lbxConcepto
         '
-        Me.lbxConcepto.Cursor = System.Windows.Forms.Cursors.Default
+        Me.lbxConcepto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lbxConcepto.FormattingEnabled = True
         Me.lbxConcepto.Items.AddRange(New Object() {"Becas", "Estilo de vida", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más"})
         Me.lbxConcepto.Location = New System.Drawing.Point(6, 203)
         Me.lbxConcepto.Name = "lbxConcepto"
+        Me.lbxConcepto.ScrollAlwaysVisible = True
         Me.lbxConcepto.Size = New System.Drawing.Size(268, 108)
         Me.lbxConcepto.TabIndex = 2
         '
         'clbArticulos
         '
+        Me.clbArticulos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clbArticulos.FormattingEnabled = True
         Me.clbArticulos.Items.AddRange(New Object() {"Artículo 1", "Artículo 2", "Artículo 3", "Artículo 4", "Artículo 5", "Artículo 6", "Artículo 7", "Artículo 8", "Artículo 9", "Artículo 10", "Artículo 11", "Artículo 12", "Artículo 13", "Artículo 14", "Artículo 15", "Artículo 16", "Artículo 17", "Artículo 18", "Artículo 19", "Artículo 20", "Artículo 21", "Artículo 22", "Artículo 23", "Artículo 24", "Artículo 25", "Artículo 26", "Artículo 27"})
-        Me.clbArticulos.Location = New System.Drawing.Point(280, 81)
+        Me.clbArticulos.Location = New System.Drawing.Point(280, 156)
         Me.clbArticulos.Name = "clbArticulos"
-        Me.clbArticulos.Size = New System.Drawing.Size(200, 229)
+        Me.clbArticulos.Size = New System.Drawing.Size(200, 154)
         Me.clbArticulos.TabIndex = 3
         '
         'lblDocumento
@@ -175,6 +183,7 @@ Partial Class Inicio
         Me.txbArticulo.Location = New System.Drawing.Point(496, 51)
         Me.txbArticulo.Multiline = True
         Me.txbArticulo.Name = "txbArticulo"
+        Me.txbArticulo.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.txbArticulo.Size = New System.Drawing.Size(414, 259)
         Me.txbArticulo.TabIndex = 7
         Me.txbArticulo.Text = resources.GetString("txbArticulo.Text")
@@ -187,12 +196,6 @@ Partial Class Inicio
         Me.btnAnadirLista.TabIndex = 8
         Me.btnAnadirLista.Text = "Añadir a la lista"
         Me.btnAnadirLista.UseVisualStyleBackColor = True
-        '
-        'VerListaToolStripMenuItem
-        '
-        Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
-        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'lblDocumentoTitulo
         '
@@ -207,14 +210,14 @@ Partial Class Inicio
         '
         Me.lblDocumentoVar.Location = New System.Drawing.Point(344, 50)
         Me.lblDocumentoVar.Name = "lblDocumentoVar"
-        Me.lblDocumentoVar.Size = New System.Drawing.Size(136, 23)
+        Me.lblDocumentoVar.Size = New System.Drawing.Size(136, 35)
         Me.lblDocumentoVar.TabIndex = 10
         Me.lblDocumentoVar.Text = "- - - -"
         '
         'lblConceptoBusqueda
         '
         Me.lblConceptoBusqueda.AutoSize = True
-        Me.lblConceptoBusqueda.Location = New System.Drawing.Point(284, 65)
+        Me.lblConceptoBusqueda.Location = New System.Drawing.Point(284, 85)
         Me.lblConceptoBusqueda.Name = "lblConceptoBusqueda"
         Me.lblConceptoBusqueda.Size = New System.Drawing.Size(56, 13)
         Me.lblConceptoBusqueda.TabIndex = 11
@@ -222,9 +225,9 @@ Partial Class Inicio
         '
         'lblConceptoVar
         '
-        Me.lblConceptoVar.Location = New System.Drawing.Point(344, 65)
+        Me.lblConceptoVar.Location = New System.Drawing.Point(344, 85)
         Me.lblConceptoVar.Name = "lblConceptoVar"
-        Me.lblConceptoVar.Size = New System.Drawing.Size(136, 13)
+        Me.lblConceptoVar.Size = New System.Drawing.Size(136, 63)
         Me.lblConceptoVar.TabIndex = 12
         Me.lblConceptoVar.Text = "- - - -"
         '

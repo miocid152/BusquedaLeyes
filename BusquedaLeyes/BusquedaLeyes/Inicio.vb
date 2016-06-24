@@ -1,11 +1,12 @@
 ﻿Imports System.Data.SQLite
 
+
 Public Class Inicio
     Shared documento As String
     Shared concepto As String
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CargarConceptoBusqueda1()
+        CargarConceptoBusqueda()
 
     End Sub
 
@@ -26,10 +27,10 @@ Public Class Inicio
         'MsgBox("Indice: '" & lvwDocumentos.SelectedIndices.Item(0) & "' Texto: '" & lvwDocumentos.SelectedItems(0).SubItems(0).Text)
     End Sub
 
-    Public Sub CargarConceptoBusqueda1()
+    Public Sub CargarConceptoBusqueda()
         'Dim utf8 As New System.Text.UTF8Encoding()
         Dim utf8 As System.Text.Encoding = System.Text.Encoding.UTF8
-        Dim conn As New SQLiteConnection("Data Source=busquedaLCM.db; Version=3; UseUTF8Encoding=True;")
+        Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
         Dim sql As String = "Select * From CONCEPTOS_BUSQUEDAS"
         Dim da As New SQLiteDataAdapter(sql, conn)
@@ -42,35 +43,7 @@ Public Class Inicio
         lbxConcepto.ValueMember = "id_busquedas"
         lbxConcepto.DisplayMember = "concepto"
         lbxConcepto.DataSource = t
-    End Sub
-
-    Public Sub CargarConceptoBusqueda()
-        Dim connectionString As String = "Data Source=busquedaLCM.db; Version=3; UTF8Encoding=True;"
-        Dim mSQL As String = "Select * From CONCEPTOS_BUSQUEDAS"
-        Dim dt As DataTable = Nothing
-        Dim ds As New DataSet
-        Try
-            Using con As New SQLiteConnection(connectionString)
-                Using cmd As New SQLiteCommand(mSQL, con)
-                    con.Open()
-                    Using da As New SQLiteDataAdapter(cmd)
-                        da.Fill(ds)
-                        dt = ds.Tables(0)
-                    End Using
-
-                End Using
-                con.Close()
-            End Using
-            lbxConcepto.Items.Clear()
-            lbxConcepto.ValueMember = "id_busquedas"
-            lbxConcepto.DisplayMember = "concepto"
-            lbxConcepto.DataSource = dt
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-
-        End Try
-
+        lbxConcepto.SetSelected(0, True)
     End Sub
 
     Private Sub lbxConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxConcepto.SelectedIndexChanged
@@ -93,4 +66,5 @@ Public Class Inicio
             MsgBox("Seleccionado el artículo: '" & itemChecked.ToString())
         Next
     End Sub
+
 End Class
