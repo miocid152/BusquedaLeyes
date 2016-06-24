@@ -2,19 +2,10 @@
 
 
 Public Class Inicio
-    Shared documento As String
-    Shared concepto As String
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarConceptoBusqueda()
-
-    End Sub
-
-    Private Sub AToolStripMenuItem_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.Click
+        CargarTooltips()
 
     End Sub
 
@@ -28,7 +19,7 @@ Public Class Inicio
     End Sub
 
     Public Sub CargarConceptoBusqueda()
-        'Dim utf8 As New System.Text.UTF8Encoding()
+
         Dim utf8 As System.Text.Encoding = System.Text.Encoding.UTF8
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
@@ -38,12 +29,46 @@ Public Class Inicio
 
         da.Fill(t)
         conn.Close()
-        Dim texto As String = t.Rows(2).Item(1)
-        'MsgBox(texto)
+
         lbxConcepto.ValueMember = "id_busquedas"
         lbxConcepto.DisplayMember = "concepto"
         lbxConcepto.DataSource = t
         lbxConcepto.SetSelected(0, True)
+
+    End Sub
+
+    Public Sub CargarTooltips()
+
+        Me.toolTipGeneral.IsBalloon = True
+        'TOOLTIP CONCEPTO DE BUSQUEDA
+        Me.toolTipGeneral.SetToolTip(lbxConcepto, "Selecciona un concepto de búsqueda")
+        'TOOLTIP DOCUMENTO
+        Me.toolTipGeneral.SetToolTip(lvwDocumentos, "Selecciona un documento")
+        'TOOLTIP ARTICULO
+        Me.toolTipGeneral.SetToolTip(clbArticulos, "Selecciona un artículo o ley")
+
+    End Sub
+
+    Public Function isFormActive(_form As Form) As Boolean
+
+        'RECIBE UN FORM Y CHECA SI YA SE ENCUENTRA ABIERTO. DEVUELVE BOOLEAN
+        For Each f As Form In Application.OpenForms
+            If f.Name = _form.Name Then
+                Return True
+            End If
+        Next
+
+        Return False
+
+    End Function
+
+    Public Sub showFormActiveOrInactive(_form As Form)
+        'FUNCION QUE RECIBE UN FORM QUE INTENTARÁ ABRIR EN CASO DE QUE ESTÉ CERRADO O MOSTRARLO SI YA ESTÁ ABIERTO
+        If Not isFormActive(_form) Then
+            _form.Show()
+        Else
+            _form.Focus()
+        End If
     End Sub
 
     Private Sub lbxConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxConcepto.SelectedIndexChanged
@@ -51,20 +76,19 @@ Public Class Inicio
         'MsgBox("El id es: '" & lbxConcepto.SelectedIndex & "' Su valor es: '" & lbxConcepto.SelectedValue & "' y el texto es: " & lbxConcepto.GetItemText(lbxConcepto.SelectedItem))
     End Sub
 
-    Private Sub VerListaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerListaToolStripMenuItem.Click
-
-    End Sub
-
     Private Sub AcercaDeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem1.Click
-        Dim acercaDe As New AcercaDe
-        acercaDe.Show()
+        'MÉNU AYUDA>ACERCA DE, ABRE EL FORM SI NO ESTA ABIERTO O CAMBIA EL FOCO A EL SI YA ESTA ABIERTO
+        showFormActiveOrInactive(AcercaDe)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAnadirLista.Click
+    Private Sub btnAnadirLista_Click(sender As Object, e As EventArgs) Handles btnAnadirLista.Click
         'MsgBox(clbArticulos.CheckedItems.Item(0))
         For Each itemChecked In clbArticulos.CheckedItems
             MsgBox("Seleccionado el artículo: '" & itemChecked.ToString())
         Next
     End Sub
 
+    Private Sub clbArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles clbArticulos.SelectedIndexChanged
+        lblArticuloVar.Text = clbArticulos.SelectedItem.ToString()
+    End Sub
 End Class
