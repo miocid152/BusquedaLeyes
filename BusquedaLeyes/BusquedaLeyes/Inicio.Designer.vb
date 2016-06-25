@@ -47,7 +47,9 @@ Partial Class Inicio
         Me.lblArticuloTitulo = New System.Windows.Forms.Label()
         Me.lblArticuloVar = New System.Windows.Forms.Label()
         Me.lbxArticulos = New System.Windows.Forms.ListBox()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MenuPrincipal.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ArchivoToolStripMenuItem
@@ -73,7 +75,7 @@ Partial Class Inicio
         'VerListaToolStripMenuItem
         '
         Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
-        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'AyudaToolStripMenuItem1
@@ -86,13 +88,13 @@ Partial Class Inicio
         'VerManualToolStripMenuItem
         '
         Me.VerManualToolStripMenuItem.Name = "VerManualToolStripMenuItem"
-        Me.VerManualToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerManualToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.VerManualToolStripMenuItem.Text = "Ver &Manual"
         '
         'AcercaDeToolStripMenuItem1
         '
         Me.AcercaDeToolStripMenuItem1.Name = "AcercaDeToolStripMenuItem1"
-        Me.AcercaDeToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AcercaDeToolStripMenuItem1.Size = New System.Drawing.Size(135, 22)
         Me.AcercaDeToolStripMenuItem1.Text = "A&cerca de..."
         '
         'MenuPrincipal
@@ -125,15 +127,16 @@ Partial Class Inicio
         Me.lbxConcepto.FormattingEnabled = True
         Me.lbxConcepto.HorizontalScrollbar = True
         Me.lbxConcepto.Items.AddRange(New Object() {"Becas", "Estilo de vida", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más"})
-        Me.lbxConcepto.Location = New System.Drawing.Point(11, 212)
+        Me.lbxConcepto.Location = New System.Drawing.Point(11, 186)
         Me.lbxConcepto.Name = "lbxConcepto"
         Me.lbxConcepto.ScrollAlwaysVisible = True
-        Me.lbxConcepto.Size = New System.Drawing.Size(268, 199)
+        Me.lbxConcepto.Size = New System.Drawing.Size(268, 225)
         Me.lbxConcepto.TabIndex = 2
         '
         'lblDocumento
         '
         Me.lblDocumento.AutoSize = True
+        Me.lblDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDocumento.Location = New System.Drawing.Point(19, 36)
         Me.lblDocumento.Name = "lblDocumento"
         Me.lblDocumento.Size = New System.Drawing.Size(247, 13)
@@ -143,7 +146,8 @@ Partial Class Inicio
         'lblConcepto
         '
         Me.lblConcepto.AutoSize = True
-        Me.lblConcepto.Location = New System.Drawing.Point(19, 196)
+        Me.lblConcepto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConcepto.Location = New System.Drawing.Point(19, 173)
         Me.lblConcepto.Name = "lblConcepto"
         Me.lblConcepto.Size = New System.Drawing.Size(243, 13)
         Me.lblConcepto.TabIndex = 5
@@ -152,7 +156,8 @@ Partial Class Inicio
         'lblArticulosTitulo
         '
         Me.lblArticulosTitulo.AutoSize = True
-        Me.lblArticulosTitulo.Location = New System.Drawing.Point(282, 35)
+        Me.lblArticulosTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblArticulosTitulo.Location = New System.Drawing.Point(285, 173)
         Me.lblArticulosTitulo.Name = "lblArticulosTitulo"
         Me.lblArticulosTitulo.Size = New System.Drawing.Size(201, 13)
         Me.lblArticulosTitulo.TabIndex = 6
@@ -171,7 +176,7 @@ Partial Class Inicio
         '
         'btnAnadirLista
         '
-        Me.btnAnadirLista.Location = New System.Drawing.Point(331, 391)
+        Me.btnAnadirLista.Location = New System.Drawing.Point(648, 372)
         Me.btnAnadirLista.Name = "btnAnadirLista"
         Me.btnAnadirLista.Size = New System.Drawing.Size(111, 23)
         Me.btnAnadirLista.TabIndex = 8
@@ -180,37 +185,39 @@ Partial Class Inicio
         '
         'lblDocumentoTitulo
         '
-        Me.lblDocumentoTitulo.AutoSize = True
-        Me.lblDocumentoTitulo.Location = New System.Drawing.Point(282, 61)
+        Me.lblDocumentoTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDocumentoTitulo.Location = New System.Drawing.Point(3, 0)
         Me.lblDocumentoTitulo.Name = "lblDocumentoTitulo"
-        Me.lblDocumentoTitulo.Size = New System.Drawing.Size(65, 13)
+        Me.lblDocumentoTitulo.Size = New System.Drawing.Size(197, 13)
         Me.lblDocumentoTitulo.TabIndex = 9
         Me.lblDocumentoTitulo.Text = "Documento:"
         '
         'lblDocumentoVar
         '
-        Me.lblDocumentoVar.Location = New System.Drawing.Point(344, 61)
+        Me.lblDocumentoVar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDocumentoVar.Location = New System.Drawing.Point(3, 13)
         Me.lblDocumentoVar.Name = "lblDocumentoVar"
-        Me.lblDocumentoVar.Size = New System.Drawing.Size(136, 35)
+        Me.lblDocumentoVar.Size = New System.Drawing.Size(197, 37)
         Me.lblDocumentoVar.TabIndex = 10
-        Me.lblDocumentoVar.Text = "- - - -"
+        Me.lblDocumentoVar.Text = "Ninguno"
         '
         'lblConceptoBusqueda
         '
-        Me.lblConceptoBusqueda.AutoSize = True
-        Me.lblConceptoBusqueda.Location = New System.Drawing.Point(282, 96)
+        Me.lblConceptoBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConceptoBusqueda.Location = New System.Drawing.Point(3, 50)
         Me.lblConceptoBusqueda.Name = "lblConceptoBusqueda"
-        Me.lblConceptoBusqueda.Size = New System.Drawing.Size(56, 13)
+        Me.lblConceptoBusqueda.Size = New System.Drawing.Size(197, 13)
         Me.lblConceptoBusqueda.TabIndex = 11
         Me.lblConceptoBusqueda.Text = "Concepto:"
         '
         'lblConceptoVar
         '
-        Me.lblConceptoVar.Location = New System.Drawing.Point(344, 96)
+        Me.lblConceptoVar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConceptoVar.Location = New System.Drawing.Point(3, 63)
         Me.lblConceptoVar.Name = "lblConceptoVar"
-        Me.lblConceptoVar.Size = New System.Drawing.Size(136, 58)
+        Me.lblConceptoVar.Size = New System.Drawing.Size(197, 44)
         Me.lblConceptoVar.TabIndex = 12
-        Me.lblConceptoVar.Text = "- - - -"
+        Me.lblConceptoVar.Text = "Ninguno"
         '
         'toolTipGeneral
         '
@@ -219,6 +226,7 @@ Partial Class Inicio
         'lblArticuloTitulo
         '
         Me.lblArticuloTitulo.AutoSize = True
+        Me.lblArticuloTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblArticuloTitulo.Location = New System.Drawing.Point(496, 35)
         Me.lblArticuloTitulo.Name = "lblArticuloTitulo"
         Me.lblArticuloTitulo.Size = New System.Drawing.Size(113, 13)
@@ -228,7 +236,7 @@ Partial Class Inicio
         'lblArticuloVar
         '
         Me.lblArticuloVar.AutoSize = True
-        Me.lblArticuloVar.Location = New System.Drawing.Point(616, 35)
+        Me.lblArticuloVar.Location = New System.Drawing.Point(604, 35)
         Me.lblArticuloVar.Name = "lblArticuloVar"
         Me.lblArticuloVar.Size = New System.Drawing.Size(47, 13)
         Me.lblArticuloVar.TabIndex = 14
@@ -237,23 +245,34 @@ Partial Class Inicio
         'lbxArticulos
         '
         Me.lbxArticulos.FormattingEnabled = True
-        Me.lbxArticulos.Location = New System.Drawing.Point(285, 157)
+        Me.lbxArticulos.HorizontalScrollbar = True
+        Me.lbxArticulos.Location = New System.Drawing.Point(285, 186)
         Me.lbxArticulos.Name = "lbxArticulos"
+        Me.lbxArticulos.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.lbxArticulos.Size = New System.Drawing.Size(205, 225)
         Me.lbxArticulos.TabIndex = 15
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel1.Controls.Add(Me.lblDocumentoTitulo)
+        Me.FlowLayoutPanel1.Controls.Add(Me.lblDocumentoVar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.lblConceptoBusqueda)
+        Me.FlowLayoutPanel1.Controls.Add(Me.lblConceptoVar)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(285, 51)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(205, 108)
+        Me.FlowLayoutPanel1.TabIndex = 16
         '
         'Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(931, 426)
+        Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.lbxArticulos)
         Me.Controls.Add(Me.lblArticuloVar)
         Me.Controls.Add(Me.lblArticuloTitulo)
-        Me.Controls.Add(Me.lblConceptoVar)
-        Me.Controls.Add(Me.lblConceptoBusqueda)
-        Me.Controls.Add(Me.lblDocumentoVar)
-        Me.Controls.Add(Me.lblDocumentoTitulo)
         Me.Controls.Add(Me.btnAnadirLista)
         Me.Controls.Add(Me.txbArticuloTexto)
         Me.Controls.Add(Me.lblArticulosTitulo)
@@ -268,6 +287,7 @@ Partial Class Inicio
         Me.Text = "Busqueda de Leyes y Artículos"
         Me.MenuPrincipal.ResumeLayout(False)
         Me.MenuPrincipal.PerformLayout()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -296,4 +316,5 @@ Partial Class Inicio
     Friend WithEvents lblArticuloTitulo As Label
     Friend WithEvents lblArticuloVar As Label
     Friend WithEvents lbxArticulos As ListBox
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

@@ -79,29 +79,27 @@ Public Class Inicio
         lvwDocumentos.Items.Add("Contrato Ley")
         lvwDocumentos.Items.Add("Ley federal del trabajo")
         lvwDocumentos.Items.Add("Plan rector")
-
     End Sub
 
     Public Sub CargarListaArticulosLeyes(sql As String)
         'MsgBox(sql)
+
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
 
         Dim da As New SQLiteDataAdapter(sql, conn)
         Dim t As New Data.DataTable
 
-
         da.Fill(t)
         conn.Close()
         'lbxArticulos.DisplayMember = Nothing
         'lbxArticulos.ValueMember = Nothing
-        lbxArticulos.DataSource = Nothing
-        lbxArticulos.Items.Clear()
+        'lbxArticulos.DataSource = Nothing
+        'lbxArticulos.Items.Clear()
 
-        lbxArticulos.DisplayMember = "noArticulo"
         lbxArticulos.ValueMember = "id_leyes"
+        lbxArticulos.DisplayMember = "noArticulo"
         lbxArticulos.DataSource = t
-
         'Pruebas
         'For Each row As DataRow In t.Rows
         ' If t.Rows.Count > 0 Then
@@ -148,7 +146,7 @@ Public Class Inicio
 
     Private Sub lbxConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxConcepto.SelectedIndexChanged
         lblConceptoVar.Text = lbxConcepto.GetItemText(lbxConcepto.SelectedItem)
-        MsgBox(lbxConcepto.SelectedValue)
+        'MsgBox(lbxConcepto.SelectedValue)
         'MsgBox("El id es: '" & lbxConcepto.SelectedIndex & "' Su valor es: '" & lbxConcepto.SelectedValue & "' y el texto es: " & lbxConcepto.GetItemText(lbxConcepto.SelectedItem))
     End Sub
 
@@ -166,5 +164,9 @@ Public Class Inicio
 
     Private Sub clbArticulos_SelectedIndexChanged(sender As Object, e As EventArgs)
         lblArticuloVar.Text = lbxArticulos.SelectedItem.ToString()
+    End Sub
+
+    Private Sub lbxArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxArticulos.SelectedIndexChanged
+        lblArticuloVar.Text = lbxArticulos.SelectedValue.ToString
     End Sub
 End Class
