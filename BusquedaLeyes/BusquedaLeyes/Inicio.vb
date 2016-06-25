@@ -2,10 +2,10 @@
 
 
 Public Class Inicio
-
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarConceptoBusqueda()
         CargarTooltips()
+        CargarListaDocumento()
 
     End Sub
 
@@ -14,13 +14,46 @@ Public Class Inicio
     End Sub
 
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwDocumentos.SelectedIndexChanged
-        If lvwDocumentos.SelectedItems.Count > 0 Then lblDocumentoVar.Text = lvwDocumentos.SelectedItems(0).SubItems(0).Text
+        Dim documento As String
+        documento = "Todos"
+        If lvwDocumentos.SelectedItems.Count > 0 Then
+            lblDocumentoVar.Text = lvwDocumentos.SelectedItems(0).SubItems(0).Text
+
+            If "Constitución política de los Estados Unidos Mexicanos".Equals(
+                    lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
+                documento = "CON"
+            End If
+            If "Acuerdo para la modernización integral de la ind. azu.".Equals(
+                   lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
+                documento = "ACM"
+            End If
+            If "Contrato Ley".Equals(
+                    lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
+                documento = "COL"
+            End If
+            If "Ley federal del trabajo".Equals(
+                lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
+                documento = "LFT"
+            End If
+            If "Plan rector".Equals(
+                lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
+                documento = "PLR"
+            End If
+            If "Todos".Equals(
+                lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
+                CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS")
+            Else
+                CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "'")
+            End If
+
+        End If
+
+
         'MsgBox("Indice: '" & lvwDocumentos.SelectedIndices.Item(0) & "' Texto: '" & lvwDocumentos.SelectedItems(0).SubItems(0).Text)
     End Sub
 
     Public Sub CargarConceptoBusqueda()
 
-        Dim utf8 As System.Text.Encoding = System.Text.Encoding.UTF8
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
         Dim sql As String = "Select * From CONCEPTOS_BUSQUEDAS"
@@ -35,6 +68,48 @@ Public Class Inicio
         lbxConcepto.DataSource = t
         lbxConcepto.SetSelected(0, True)
 
+
+    End Sub
+
+    Public Sub CargarListaDocumento()
+        lvwDocumentos.Items.Clear()
+        lvwDocumentos.Items.Add("Todos")
+        lvwDocumentos.Items.Add("Acuerdo para la modernización integral de la ind. azu.")
+        lvwDocumentos.Items.Add("Constitución política de los Estados Unidos Mexicanos")
+        lvwDocumentos.Items.Add("Contrato Ley")
+        lvwDocumentos.Items.Add("Ley federal del trabajo")
+        lvwDocumentos.Items.Add("Plan rector")
+
+    End Sub
+
+    Public Sub CargarListaArticulosLeyes(sql As String)
+        'MsgBox(sql)
+        Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
+        conn.Open()
+
+        Dim da As New SQLiteDataAdapter(sql, conn)
+        Dim t As New Data.DataTable
+
+
+        da.Fill(t)
+        conn.Close()
+        'lbxArticulos.DisplayMember = Nothing
+        'lbxArticulos.ValueMember = Nothing
+        lbxArticulos.DataSource = Nothing
+        lbxArticulos.Items.Clear()
+
+        lbxArticulos.DisplayMember = "noArticulo"
+        lbxArticulos.ValueMember = "id_leyes"
+        lbxArticulos.DataSource = t
+
+        'Pruebas
+        'For Each row As DataRow In t.Rows
+        ' If t.Rows.Count > 0 Then
+        '    MsgBox(row("id_leyes"))
+        'Next
+
+
+
     End Sub
 
     Public Sub CargarTooltips()
@@ -44,8 +119,8 @@ Public Class Inicio
         Me.toolTipGeneral.SetToolTip(lbxConcepto, "Selecciona un concepto de búsqueda")
         'TOOLTIP DOCUMENTO
         Me.toolTipGeneral.SetToolTip(lvwDocumentos, "Selecciona un documento")
-        'TOOLTIP ARTICULO
-        Me.toolTipGeneral.SetToolTip(clbArticulos, "Selecciona un artículo o ley")
+        'ToolTip ARTICULO
+        Me.toolTipGeneral.SetToolTip(lbxArticulos, "Selecciona un artículo o ley")
 
     End Sub
 
@@ -73,6 +148,7 @@ Public Class Inicio
 
     Private Sub lbxConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxConcepto.SelectedIndexChanged
         lblConceptoVar.Text = lbxConcepto.GetItemText(lbxConcepto.SelectedItem)
+        MsgBox(lbxConcepto.SelectedValue)
         'MsgBox("El id es: '" & lbxConcepto.SelectedIndex & "' Su valor es: '" & lbxConcepto.SelectedValue & "' y el texto es: " & lbxConcepto.GetItemText(lbxConcepto.SelectedItem))
     End Sub
 
@@ -83,12 +159,12 @@ Public Class Inicio
 
     Private Sub btnAnadirLista_Click(sender As Object, e As EventArgs) Handles btnAnadirLista.Click
         'MsgBox(clbArticulos.CheckedItems.Item(0))
-        For Each itemChecked In clbArticulos.CheckedItems
-            MsgBox("Seleccionado el artículo: '" & itemChecked.ToString())
-        Next
+        'For Each itemChecked In clbArticulos.CheckedItems
+        'MsgBox("Seleccionado el artículo: '" & itemChecked.ToString())
+        'Next
     End Sub
 
-    Private Sub clbArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles clbArticulos.SelectedIndexChanged
-        lblArticuloVar.Text = clbArticulos.SelectedItem.ToString()
+    Private Sub clbArticulos_SelectedIndexChanged(sender As Object, e As EventArgs)
+        lblArticuloVar.Text = lbxArticulos.SelectedItem.ToString()
     End Sub
 End Class
