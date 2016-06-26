@@ -75,7 +75,7 @@ Partial Class Inicio
         'VerListaToolStripMenuItem
         '
         Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
-        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'AyudaToolStripMenuItem1
@@ -244,11 +244,11 @@ Partial Class Inicio
         '
         'lbxArticulos
         '
+        Me.lbxArticulos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lbxArticulos.FormattingEnabled = True
         Me.lbxArticulos.HorizontalScrollbar = True
         Me.lbxArticulos.Location = New System.Drawing.Point(285, 186)
         Me.lbxArticulos.Name = "lbxArticulos"
-        Me.lbxArticulos.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.lbxArticulos.Size = New System.Drawing.Size(205, 225)
         Me.lbxArticulos.TabIndex = 15
         '
@@ -268,6 +268,8 @@ Partial Class Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(931, 426)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.lbxArticulos)
@@ -283,7 +285,9 @@ Partial Class Inicio
         Me.Controls.Add(Me.MenuPrincipal)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuPrincipal
+        Me.MaximizeBox = False
         Me.Name = "Inicio"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Busqueda de Leyes y Artículos"
         Me.MenuPrincipal.ResumeLayout(False)
         Me.MenuPrincipal.PerformLayout()

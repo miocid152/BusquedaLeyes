@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AcercaDe
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class AcercaDe
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AcercaDe))
         Me.ptbLogo = New System.Windows.Forms.PictureBox()
@@ -52,26 +52,30 @@ Partial Class AcercaDe
         '
         'txbInformacion
         '
+        Me.txbInformacion.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txbInformacion.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.txbInformacion.Enabled = False
         Me.txbInformacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbInformacion.Location = New System.Drawing.Point(220, 116)
+        Me.txbInformacion.Location = New System.Drawing.Point(215, 120)
         Me.txbInformacion.Multiline = True
         Me.txbInformacion.Name = "txbInformacion"
         Me.txbInformacion.ReadOnly = True
         Me.txbInformacion.Size = New System.Drawing.Size(173, 55)
         Me.txbInformacion.TabIndex = 2
-        Me.txbInformacion.Text = "Aplicación en construcción" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Versión 0.1"
+        Me.txbInformacion.Text = "Aplicación en construcción" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Versión 1.0"
         Me.txbInformacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AcercaDe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(496, 297)
         Me.Controls.Add(Me.txbInformacion)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.ptbLogo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "AcercaDe"
         Me.Text = "Acerca De"
         CType(Me.ptbLogo, System.ComponentModel.ISupportInitialize).EndInit()
