@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SQLite
-
+Imports BusquedaLeyes
 
 Public Class Inicio
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -45,7 +45,7 @@ Public Class Inicio
             Else
                 CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "'")
             End If
-
+            lbxArticulos.ClearSelected()
         End If
 
 
@@ -153,6 +153,8 @@ Public Class Inicio
     Private Sub AcercaDeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem1.Click
         'MÉNU AYUDA>ACERCA DE, ABRE EL FORM SI NO ESTA ABIERTO O CAMBIA EL FOCO A EL SI YA ESTA ABIERTO
         showFormActiveOrInactive(AcercaDe)
+        AcercaDe.Focus()
+
     End Sub
 
     Private Sub btnAnadirLista_Click(sender As Object, e As EventArgs) Handles btnAnadirLista.Click
@@ -162,11 +164,7 @@ Public Class Inicio
         'Next
     End Sub
 
-    Private Sub clbArticulos_SelectedIndexChanged(sender As Object, e As EventArgs)
-        lblArticuloVar.Text = lbxArticulos.SelectedItem.ToString()
-    End Sub
-
     Private Sub lbxArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxArticulos.SelectedIndexChanged
-        lblArticuloVar.Text = lbxArticulos.SelectedValue.ToString
+        lblArticuloVar.Text = lbxArticulos.SelectedValue
     End Sub
 End Class

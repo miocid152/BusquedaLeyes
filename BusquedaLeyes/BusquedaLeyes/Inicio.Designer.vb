@@ -48,6 +48,7 @@ Partial Class Inicio
         Me.lblArticuloVar = New System.Windows.Forms.Label()
         Me.lbxArticulos = New System.Windows.Forms.ListBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnQuitarLista = New System.Windows.Forms.Button()
         Me.MenuPrincipal.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -126,7 +127,6 @@ Partial Class Inicio
         Me.lbxConcepto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lbxConcepto.FormattingEnabled = True
         Me.lbxConcepto.HorizontalScrollbar = True
-        Me.lbxConcepto.Items.AddRange(New Object() {"Becas", "Estilo de vida", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más", "Más"})
         Me.lbxConcepto.Location = New System.Drawing.Point(11, 186)
         Me.lbxConcepto.Name = "lbxConcepto"
         Me.lbxConcepto.ScrollAlwaysVisible = True
@@ -176,7 +176,7 @@ Partial Class Inicio
         '
         'btnAnadirLista
         '
-        Me.btnAnadirLista.Location = New System.Drawing.Point(648, 372)
+        Me.btnAnadirLista.Location = New System.Drawing.Point(540, 372)
         Me.btnAnadirLista.Name = "btnAnadirLista"
         Me.btnAnadirLista.Size = New System.Drawing.Size(111, 23)
         Me.btnAnadirLista.TabIndex = 8
@@ -264,6 +264,15 @@ Partial Class Inicio
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(205, 108)
         Me.FlowLayoutPanel1.TabIndex = 16
         '
+        'btnQuitarLista
+        '
+        Me.btnQuitarLista.Location = New System.Drawing.Point(738, 372)
+        Me.btnQuitarLista.Name = "btnQuitarLista"
+        Me.btnQuitarLista.Size = New System.Drawing.Size(111, 23)
+        Me.btnQuitarLista.TabIndex = 17
+        Me.btnQuitarLista.Text = "Quitar de la lista"
+        Me.btnQuitarLista.UseVisualStyleBackColor = True
+        '
         'Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,6 +280,7 @@ Partial Class Inicio
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(931, 426)
+        Me.Controls.Add(Me.btnQuitarLista)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.lbxArticulos)
         Me.Controls.Add(Me.lblArticuloVar)
@@ -321,4 +331,5 @@ Partial Class Inicio
     Friend WithEvents lblArticuloVar As Label
     Friend WithEvents lbxArticulos As ListBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents btnQuitarLista As Button
 End Class
