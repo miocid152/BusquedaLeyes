@@ -76,7 +76,7 @@ Partial Class Inicio
         'VerListaToolStripMenuItem
         '
         Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
-        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'AyudaToolStripMenuItem1

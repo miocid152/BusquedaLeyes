@@ -87,6 +87,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Listap.Designer.vb">
+      <DependentUpon>Listap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listap.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listap.resx">
+      <DependentUpon>Listap.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

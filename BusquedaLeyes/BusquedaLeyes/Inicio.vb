@@ -1,11 +1,13 @@
 ﻿Imports System.Data.SQLite
-Imports BusquedaLeyes
+
 
 Public Class Inicio
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarConceptoBusqueda()
         CargarTooltips()
         CargarListaDocumento()
+        btnAnadirLista.Enabled = False
+        btnQuitarLista.Enabled = False
 
     End Sub
 
@@ -150,21 +152,70 @@ Public Class Inicio
         'MsgBox("El id es: '" & lbxConcepto.SelectedIndex & "' Su valor es: '" & lbxConcepto.SelectedValue & "' y el texto es: " & lbxConcepto.GetItemText(lbxConcepto.SelectedItem))
     End Sub
 
+    Private Sub VerListaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerListaToolStripMenuItem.Click
+        showFormActiveOrInactive(Listap)
+    End Sub
+
+
     Private Sub AcercaDeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem1.Click
         'MÉNU AYUDA>ACERCA DE, ABRE EL FORM SI NO ESTA ABIERTO O CAMBIA EL FOCO A EL SI YA ESTA ABIERTO
         showFormActiveOrInactive(AcercaDe)
-        AcercaDe.Focus()
 
     End Sub
 
+
     Private Sub btnAnadirLista_Click(sender As Object, e As EventArgs) Handles btnAnadirLista.Click
+        agregarQuitarLista(1, lbxArticulos.SelectedValue)
+        habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
         'MsgBox(clbArticulos.CheckedItems.Item(0))
         'For Each itemChecked In clbArticulos.CheckedItems
         'MsgBox("Seleccionado el artículo: '" & itemChecked.ToString())
         'Next
     End Sub
 
+    Private Sub btnQuitarLista_Click(sender As Object, e As EventArgs) Handles btnQuitarLista.Click
+        agregarQuitarLista(0, lbxArticulos.SelectedValue)
+        habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
+    End Sub
+
     Private Sub lbxArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxArticulos.SelectedIndexChanged
         lblArticuloVar.Text = lbxArticulos.SelectedValue
+        cargarContenido()
+        habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
+
     End Sub
+
+    Private Sub cargarContenido()
+
+    End Sub
+    Private Sub habilitarDeshabilitarBTN(id_leyes As Integer)
+        Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
+        conn.Open()
+        Dim Sql = "Select bandera_Vista From DATOS where id_leyes = " & id_leyes
+        Dim da As New SQLiteDataAdapter(Sql, conn)
+        Dim t As New Data.DataTable
+        da.Fill(t)
+        conn.Close()
+        For Each row As DataRow In t.Rows
+            If (row("bandera_Vista") = 0) Then
+                btnAnadirLista.Enabled = True
+                btnQuitarLista.Enabled = False
+            Else
+                btnAnadirLista.Enabled = False
+                btnQuitarLista.Enabled = True
+            End If
+        Next
+    End Sub
+
+    Private Sub agregarQuitarLista(bandera As Integer, id_leyes As Integer)
+        Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
+        Dim Sql = "UPDATE DATOS SET bandera_Vista = " & bandera & " WHERE id_leyes = " & id_leyes
+
+        Dim Command = New SQLiteCommand(Sql, conn)
+        conn.Open()
+        Command.ExecuteNonQuery()
+        conn.Close()
+    End Sub
+
+
 End Class
