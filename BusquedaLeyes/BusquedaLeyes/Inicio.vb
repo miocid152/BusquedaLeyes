@@ -217,5 +217,13 @@ Public Class Inicio
         conn.Close()
     End Sub
 
+    Private Sub Inicio_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        If isFormActive(AcercaDe) Then
+            showFormActiveOrInactive(AcercaDe)
+        End If
 
+        If isFormActive(Listap) Then
+            showFormActiveOrInactive(Listap)
+        End If
+    End Sub
 End Class

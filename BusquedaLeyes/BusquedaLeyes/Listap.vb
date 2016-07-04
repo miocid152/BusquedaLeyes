@@ -29,7 +29,5 @@ Public Class Listap
         CargarListaArticulosLeyes()
     End Sub
 
-    Private Sub Listap_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
-        Focus()
-    End Sub
+
 End Class
