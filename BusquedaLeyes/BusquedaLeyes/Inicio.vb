@@ -104,8 +104,9 @@ Public Class Inicio
         lbxArticulos.DataSource = t
         'Pruebas
         'For Each row As DataRow In t.Rows
-        ' If t.Rows.Count > 0 Then
-        '    MsgBox(row("id_leyes"))
+        'If t.Rows.Count > 0 Then
+        'MsgBox(row("id_leyes"))
+        'End If
         'Next
 
 
@@ -180,13 +181,27 @@ Public Class Inicio
 
     Private Sub lbxArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxArticulos.SelectedIndexChanged
         lblArticuloVar.Text = lbxArticulos.SelectedValue
-        cargarContenido()
+        cargarContenido(lbxArticulos.SelectedValue)
         habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
 
     End Sub
 
-    Private Sub cargarContenido()
+    Private Sub cargarContenido(id_leyes As Integer)
+        Dim Sql = "Select FK_id_leyes,contenido From ContenidoDatos where FK_id_leyes = " & id_leyes
+        Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
+        conn.Open()
 
+        Dim da As New SQLiteDataAdapter(Sql, conn)
+        Dim t As New Data.DataTable
+        da.Fill(t)
+        conn.Close()
+        txbArticuloTexto.ResetText()
+        For Each row As DataRow In t.Rows
+            txbArticuloTexto.Rtf = (row("contenido"))
+        Next
+
+
+        'MsgBox("SALIO")
     End Sub
     Private Sub habilitarDeshabilitarBTN(id_leyes As Integer)
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")

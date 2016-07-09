@@ -26,9 +26,9 @@ Partial Class Listap
         Me.lbxArticulosLista = New System.Windows.Forms.ListBox()
         Me.lblArticuloVarLista = New System.Windows.Forms.Label()
         Me.lblArticuloTituloLita = New System.Windows.Forms.Label()
-        Me.txbArticuloTextoLista = New System.Windows.Forms.TextBox()
         Me.lblArticulosTituloLista = New System.Windows.Forms.Label()
         Me.btnMasLista = New System.Windows.Forms.Button()
+        Me.txbArticuloTextoLista = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lbxArticulosLista
@@ -60,17 +60,6 @@ Partial Class Listap
         Me.lblArticuloTituloLita.TabIndex = 18
         Me.lblArticuloTituloLita.Text = "Artículo seleccionado:"
         '
-        'txbArticuloTextoLista
-        '
-        Me.txbArticuloTextoLista.Location = New System.Drawing.Point(300, 28)
-        Me.txbArticuloTextoLista.Multiline = True
-        Me.txbArticuloTextoLista.Name = "txbArticuloTextoLista"
-        Me.txbArticuloTextoLista.ReadOnly = True
-        Me.txbArticuloTextoLista.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txbArticuloTextoLista.Size = New System.Drawing.Size(605, 363)
-        Me.txbArticuloTextoLista.TabIndex = 17
-        Me.txbArticuloTextoLista.Text = resources.GetString("txbArticuloTextoLista.Text")
-        '
         'lblArticulosTituloLista
         '
         Me.lblArticulosTituloLista.AutoSize = True
@@ -89,6 +78,17 @@ Partial Class Listap
         Me.btnMasLista.TabIndex = 21
         Me.btnMasLista.Text = "Mas>>>"
         Me.btnMasLista.UseVisualStyleBackColor = True
+        '
+        'txbArticuloTextoLista
+        '
+        Me.txbArticuloTextoLista.Location = New System.Drawing.Point(300, 28)
+        Me.txbArticuloTextoLista.Multiline = True
+        Me.txbArticuloTextoLista.Name = "txbArticuloTextoLista"
+        Me.txbArticuloTextoLista.ReadOnly = True
+        Me.txbArticuloTextoLista.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.txbArticuloTextoLista.Size = New System.Drawing.Size(605, 363)
+        Me.txbArticuloTextoLista.TabIndex = 17
+        Me.txbArticuloTextoLista.Text = resources.GetString("txbArticuloTextoLista.Text")
         '
         'Listap
         '
@@ -116,7 +116,7 @@ Partial Class Listap
     Friend WithEvents lbxArticulosLista As ListBox
     Friend WithEvents lblArticuloVarLista As Label
     Friend WithEvents lblArticuloTituloLita As Label
-    Friend WithEvents txbArticuloTextoLista As TextBox
     Friend WithEvents lblArticulosTituloLista As Label
     Friend WithEvents btnMasLista As Button
+    Friend WithEvents txbArticuloTextoLista As TextBox
 End Class

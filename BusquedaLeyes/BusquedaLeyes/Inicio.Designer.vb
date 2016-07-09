@@ -37,7 +37,7 @@ Partial Class Inicio
         Me.lblDocumento = New System.Windows.Forms.Label()
         Me.lblConcepto = New System.Windows.Forms.Label()
         Me.lblArticulosTitulo = New System.Windows.Forms.Label()
-        Me.txbArticuloTexto = New System.Windows.Forms.TextBox()
+        Me.txbArticuloTexto222 = New System.Windows.Forms.TextBox()
         Me.btnAnadirLista = New System.Windows.Forms.Button()
         Me.lblDocumentoTitulo = New System.Windows.Forms.Label()
         Me.lblDocumentoVar = New System.Windows.Forms.Label()
@@ -49,6 +49,8 @@ Partial Class Inicio
         Me.lbxArticulos = New System.Windows.Forms.ListBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnQuitarLista = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.txbArticuloTexto = New System.Windows.Forms.RichTextBox()
         Me.MenuPrincipal.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -76,7 +78,7 @@ Partial Class Inicio
         'VerListaToolStripMenuItem
         '
         Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
-        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'AyudaToolStripMenuItem1
@@ -163,20 +165,20 @@ Partial Class Inicio
         Me.lblArticulosTitulo.TabIndex = 6
         Me.lblArticulosTitulo.Text = "Artículos según los criterios de búsqueda"
         '
-        'txbArticuloTexto
+        'txbArticuloTexto222
         '
-        Me.txbArticuloTexto.Location = New System.Drawing.Point(496, 51)
-        Me.txbArticuloTexto.Multiline = True
-        Me.txbArticuloTexto.Name = "txbArticuloTexto"
-        Me.txbArticuloTexto.ReadOnly = True
-        Me.txbArticuloTexto.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txbArticuloTexto.Size = New System.Drawing.Size(410, 363)
-        Me.txbArticuloTexto.TabIndex = 7
-        Me.txbArticuloTexto.Text = resources.GetString("txbArticuloTexto.Text")
+        Me.txbArticuloTexto222.Location = New System.Drawing.Point(496, 51)
+        Me.txbArticuloTexto222.Multiline = True
+        Me.txbArticuloTexto222.Name = "txbArticuloTexto222"
+        Me.txbArticuloTexto222.ReadOnly = True
+        Me.txbArticuloTexto222.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.txbArticuloTexto222.Size = New System.Drawing.Size(410, 334)
+        Me.txbArticuloTexto222.TabIndex = 7
+        Me.txbArticuloTexto222.Text = resources.GetString("txbArticuloTexto222.Text")
         '
         'btnAnadirLista
         '
-        Me.btnAnadirLista.Location = New System.Drawing.Point(540, 372)
+        Me.btnAnadirLista.Location = New System.Drawing.Point(734, 391)
         Me.btnAnadirLista.Name = "btnAnadirLista"
         Me.btnAnadirLista.Size = New System.Drawing.Size(111, 23)
         Me.btnAnadirLista.TabIndex = 8
@@ -266,12 +268,25 @@ Partial Class Inicio
         '
         'btnQuitarLista
         '
-        Me.btnQuitarLista.Location = New System.Drawing.Point(738, 372)
+        Me.btnQuitarLista.Location = New System.Drawing.Point(520, 391)
         Me.btnQuitarLista.Name = "btnQuitarLista"
         Me.btnQuitarLista.Size = New System.Drawing.Size(111, 23)
         Me.btnQuitarLista.TabIndex = 17
         Me.btnQuitarLista.Text = "Quitar de la lista"
         Me.btnQuitarLista.UseVisualStyleBackColor = True
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'txbArticuloTexto
+        '
+        Me.txbArticuloTexto.Location = New System.Drawing.Point(499, 52)
+        Me.txbArticuloTexto.Name = "txbArticuloTexto"
+        Me.txbArticuloTexto.Size = New System.Drawing.Size(387, 331)
+        Me.txbArticuloTexto.TabIndex = 19
+        Me.txbArticuloTexto.Text = ""
         '
         'Inicio
         '
@@ -280,13 +295,14 @@ Partial Class Inicio
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(931, 426)
+        Me.Controls.Add(Me.txbArticuloTexto)
         Me.Controls.Add(Me.btnQuitarLista)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.lbxArticulos)
         Me.Controls.Add(Me.lblArticuloVar)
         Me.Controls.Add(Me.lblArticuloTitulo)
         Me.Controls.Add(Me.btnAnadirLista)
-        Me.Controls.Add(Me.txbArticuloTexto)
+        Me.Controls.Add(Me.txbArticuloTexto222)
         Me.Controls.Add(Me.lblArticulosTitulo)
         Me.Controls.Add(Me.lblConcepto)
         Me.Controls.Add(Me.lblDocumento)
@@ -319,7 +335,7 @@ Partial Class Inicio
     Friend WithEvents lblDocumento As Label
     Friend WithEvents lblConcepto As Label
     Friend WithEvents lblArticulosTitulo As Label
-    Friend WithEvents txbArticuloTexto As TextBox
+    Friend WithEvents txbArticuloTexto222 As TextBox
     Friend WithEvents VerListaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnAnadirLista As Button
     Friend WithEvents lblDocumentoTitulo As Label
@@ -332,4 +348,6 @@ Partial Class Inicio
     Friend WithEvents lbxArticulos As ListBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents btnQuitarLista As Button
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents txbArticuloTexto As RichTextBox
 End Class

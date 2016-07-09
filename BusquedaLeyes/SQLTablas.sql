@@ -923,6 +923,33 @@ INSERT INTO DATOS (id_leyes,documento,bandera_Vista,noArticulo) VALUES(?,'PLR',0
 INSERT INTO DATOS (id_leyes,documento,bandera_Vista,noArticulo) VALUES(?,'PLR',0,'CLAUSULA VIGESIMA SEGUNDA');
 
 
+INSERT INTO ContenidoDatos(FK_id_leyes,contenido) 
+        VALUES(14,"{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang2058{\fonttbl{\f0\fswiss\fprq2\fcharset0 Arial;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fnil\fcharset0 Microsoft Sans Serif;}}
+{\colortbl ;\red0\green0\blue255;}
+\viewkind4\uc1\pard\ltrpar\fi289\qj\b\f0\fs20 Art\'edculo 5o.\b0  A ninguna persona podr\'e1 impedirse que se dedique a la profesi\'f3n, industria, comercio o trabajo que le acomode, siendo l\'edcitos. El ejercicio de esta libertad s\'f3lo podr\'e1 vedarse por determinaci\'f3n judicial, cuando se ataquen los derechos de tercero, o por resoluci\'f3n gubernativa, dictada en los t\'e9rminos que marque la ley, cuando se ofendan los derechos de la sociedad. Nadie puede ser privado del producto de su trabajo, sino por resoluci\'f3n judicial.\par
+\par
+La Ley determinar\'e1 en cada Estado, cu\'e1les son las profesiones que necesitan t\'edtulo para su ejercicio, las condiciones que deban llenarse para obtenerlo y las autoridades que han de expedirlo.\par
+\par
+Nadie podr\'e1 ser obligado a prestar trabajos personales sin la justa retribuci\'f3n y sin su pleno consentimiento, salvo el trabajo impuesto como pena por la autoridad judicial, el cual se ajustar\'e1 a lo dispuesto en las fracciones I y II del art\'edculo 123.\par
+\par
+En cuanto a los servicios p\'fablicos, s\'f3lo podr\'e1n ser obligatorios, en los t\'e9rminos que establezcan las leyes respectivas, el de las armas y los jurados, as\'ed como el desempe\'f1o de los cargos concejiles y los de elecci\'f3n popular, directa o indirecta. Las funciones electorales y censales tendr\'e1n car\'e1cter obligatorio y gratuito, pero ser\'e1n retribuidas aqu\'e9llas que se realicen profesionalmente en los t\'e9rminos de esta Constituci\'f3n y las leyes correspondientes. Los servicios profesionales de \'edndole social ser\'e1n obligatorios y retribuidos en los t\'e9rminos de la ley y con las excepciones que \'e9sta se\'f1ale.\par
+\pard\ltrpar\qr\cf1\i\f1\fs16 P\'e1rrafo reformado DOF 06-04-1990\par
+\pard\ltrpar\fi289\qj\cf0\i0\f0\fs20\par
+El Estado no puede permitir que se lleve a efecto ning\'fan contrato, pacto o convenio que tenga por objeto el menoscabo, la p\'e9rdida o el irrevocable sacrificio de la libertad de la persona por cualquier causa.\par
+\pard\ltrpar\qr\cf1\i\f1\fs16 P\'e1rrafo reformado DOF 28-01-1992\par
+\pard\ltrpar\fi289\qj\cf0\i0\f0\fs20\par
+Tampoco puede admitirse convenio en que la persona pacte su proscripci\'f3n o destierro, o en que renuncie temporal o permanentemente a ejercer determinada profesi\'f3n, industria o comercio.\par
+\par
+El contrato de trabajo s\'f3lo obligar\'e1 a prestar el servicio convenido por el tiempo que fije la ley, sin poder exceder de un a\'f1o en perjuicio del trabajador, y no podr\'e1 extenderse, en ning\'fan caso, a la renuncia, p\'e9rdida o menoscabo de cualquiera de los derechos pol\'edticos o civiles.\par
+\par
+La falta de cumplimiento de dicho contrato, por lo que respecta al trabajador, s\'f3lo obligar\'e1 a \'e9ste a la correspondiente responsabilidad civil, sin que en ning\'fan caso pueda hacerse coacci\'f3n sobre su persona.\par
+\pard\ltrpar\fi708\qr\cf1\i\f1\fs16 Art\'edculo reformado DOF 17-11-1942, 31-12-1974\par
+\pard\ltrpar\fi289\qj\cf0\i0\f0\fs20\par
+\pard\ltrpar\f2\fs17\par
+}
+");
+
+
 Select * FROM CONCEPTOS_BUSQUEDAS
 
 Select * FROM DATOS WHERE id_leyes in (
