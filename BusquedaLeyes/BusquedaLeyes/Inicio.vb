@@ -41,13 +41,22 @@ Public Class Inicio
                 lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
                 documento = "PLR"
             End If
+            'MsgBox(lbxConcepto.SelectedValue)
             If "Todos".Equals(
                 lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
-                CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS")
+                If lbxConcepto.SelectedValue = 1 Then
+                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS")
+                Else
+                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
+                End If
             Else
-                CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "'")
+                If lbxConcepto.SelectedValue = 1 Then
+                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "'")
+                Else
+                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "' and id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
+                End If
             End If
-            lbxArticulos.ClearSelected()
+                lbxArticulos.ClearSelected()
         End If
 
 
@@ -149,6 +158,7 @@ Public Class Inicio
 
     Private Sub lbxConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxConcepto.SelectedIndexChanged
         lblConceptoVar.Text = lbxConcepto.GetItemText(lbxConcepto.SelectedItem)
+        Me.ListView1_SelectedIndexChanged(sender, e)
         'MsgBox(lbxConcepto.SelectedValue)
         'MsgBox("El id es: '" & lbxConcepto.SelectedIndex & "' Su valor es: '" & lbxConcepto.SelectedValue & "' y el texto es: " & lbxConcepto.GetItemText(lbxConcepto.SelectedItem))
     End Sub
