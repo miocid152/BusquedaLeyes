@@ -45,15 +45,15 @@ Public Class Inicio
             If "Todos".Equals(
                 lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
                 If lbxConcepto.SelectedValue = 1 Then
-                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS")
+                    CargarListaArticulosLeyes(1, "Select id_leyes,noArticulo,documento From DATOS")
                 Else
-                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
+                    CargarListaArticulosLeyes(1, "Select id_leyes,noArticulo,documento From DATOS where id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
                 End If
             Else
                 If lbxConcepto.SelectedValue = 1 Then
-                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "'")
+                    CargarListaArticulosLeyes(0, "Select id_leyes,noArticulo,documento From DATOS where documento = '" & documento & "'")
                 Else
-                    CargarListaArticulosLeyes("Select noArticulo,id_leyes From DATOS where documento = '" & documento & "' and id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
+                    CargarListaArticulosLeyes(0, "Select id_leyes,noArticulo,documento From DATOS where documento = '" & documento & "' and id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
                 End If
             End If
                 lbxArticulos.ClearSelected()
@@ -92,32 +92,37 @@ Public Class Inicio
         lvwDocumentos.Items.Add("Plan rector")
     End Sub
 
-    Public Sub CargarListaArticulosLeyes(sql As String)
-        'MsgBox(sql)
-
+    Public Sub CargarListaArticulosLeyes(banTodos As Integer, sql As String)
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
-
         Dim da As New SQLiteDataAdapter(sql, conn)
         Dim t As New Data.DataTable
-
+        Dim _dt = New Data.DataTable
+        With _dt.Columns
+            .Add("id_leyes")
+            .Add("nombreArticulo")
+        End With
         da.Fill(t)
+
+
+        For Each row As DataRow In t.Rows
+            If t.Rows.Count > 0 Then
+                '
+                If banTodos = 1 Then
+                    _dt.Rows.Add({row("id_leyes"), row("documento") & "   " & row("noArticulo")})
+                Else
+                    _dt.Rows.Add({row("id_leyes"), row("noArticulo")})
+                End If
+            End If
+        Next
+
+
         conn.Close()
-        'lbxArticulos.DisplayMember = Nothing
-        'lbxArticulos.ValueMember = Nothing
-        'lbxArticulos.DataSource = Nothing
-        'lbxArticulos.Items.Clear()
 
+        '-----------------------Bueno
         lbxArticulos.ValueMember = "id_leyes"
-        lbxArticulos.DisplayMember = "noArticulo"
-        lbxArticulos.DataSource = t
-        'Pruebas
-        'For Each row As DataRow In t.Rows
-        'If t.Rows.Count > 0 Then
-        'MsgBox(row("id_leyes"))
-        'End If
-        'Next
-
+        lbxArticulos.DisplayMember = "nombreArticulo"
+        lbxArticulos.DataSource = _dt
 
 
     End Sub

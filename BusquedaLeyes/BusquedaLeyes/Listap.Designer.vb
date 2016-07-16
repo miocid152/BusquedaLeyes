@@ -22,13 +22,17 @@ Partial Class Listap
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Listap))
         Me.lbxArticulosLista = New System.Windows.Forms.ListBox()
         Me.lblArticuloVarLista = New System.Windows.Forms.Label()
         Me.lblArticuloTituloLita = New System.Windows.Forms.Label()
         Me.lblArticulosTituloLista = New System.Windows.Forms.Label()
-        Me.btnMasLista = New System.Windows.Forms.Button()
-        Me.txbArticuloTextoLista = New System.Windows.Forms.TextBox()
+        Me.btnQuitar = New System.Windows.Forms.Button()
+        Me.cbxListaDocumento = New System.Windows.Forms.ComboBox()
+        Me.txbArticuloTextoLista = New System.Windows.Forms.RichTextBox()
+        Me.InicioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.InicioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbxArticulosLista
@@ -36,7 +40,7 @@ Partial Class Listap
         Me.lbxArticulosLista.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lbxArticulosLista.FormattingEnabled = True
         Me.lbxArticulosLista.HorizontalScrollbar = True
-        Me.lbxArticulosLista.Location = New System.Drawing.Point(12, 41)
+        Me.lbxArticulosLista.Location = New System.Drawing.Point(12, 48)
         Me.lbxArticulosLista.Name = "lbxArticulosLista"
         Me.lbxArticulosLista.Size = New System.Drawing.Size(205, 225)
         Me.lbxArticulosLista.TabIndex = 20
@@ -64,50 +68,62 @@ Partial Class Listap
         '
         Me.lblArticulosTituloLista.AutoSize = True
         Me.lblArticulosTituloLista.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblArticulosTituloLista.Location = New System.Drawing.Point(12, 28)
+        Me.lblArticulosTituloLista.Location = New System.Drawing.Point(12, 32)
         Me.lblArticulosTituloLista.Name = "lblArticulosTituloLista"
         Me.lblArticulosTituloLista.Size = New System.Drawing.Size(201, 13)
         Me.lblArticulosTituloLista.TabIndex = 16
         Me.lblArticulosTituloLista.Text = "Artículos según los criterios de búsqueda"
         '
-        'btnMasLista
+        'btnQuitar
         '
-        Me.btnMasLista.Location = New System.Drawing.Point(219, 56)
-        Me.btnMasLista.Name = "btnMasLista"
-        Me.btnMasLista.Size = New System.Drawing.Size(75, 23)
-        Me.btnMasLista.TabIndex = 21
-        Me.btnMasLista.Text = "Mas>>>"
-        Me.btnMasLista.UseVisualStyleBackColor = True
+        Me.btnQuitar.Location = New System.Drawing.Point(15, 279)
+        Me.btnQuitar.Name = "btnQuitar"
+        Me.btnQuitar.Size = New System.Drawing.Size(78, 23)
+        Me.btnQuitar.TabIndex = 21
+        Me.btnQuitar.Text = "QuitarArticulo"
+        Me.btnQuitar.UseVisualStyleBackColor = True
+        '
+        'cbxListaDocumento
+        '
+        Me.cbxListaDocumento.FormattingEnabled = True
+        Me.cbxListaDocumento.Location = New System.Drawing.Point(12, 9)
+        Me.cbxListaDocumento.Name = "cbxListaDocumento"
+        Me.cbxListaDocumento.Size = New System.Drawing.Size(282, 21)
+        Me.cbxListaDocumento.TabIndex = 22
         '
         'txbArticuloTextoLista
         '
-        Me.txbArticuloTextoLista.Location = New System.Drawing.Point(300, 28)
-        Me.txbArticuloTextoLista.Multiline = True
+        Me.txbArticuloTextoLista.Location = New System.Drawing.Point(303, 28)
         Me.txbArticuloTextoLista.Name = "txbArticuloTextoLista"
-        Me.txbArticuloTextoLista.ReadOnly = True
-        Me.txbArticuloTextoLista.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txbArticuloTextoLista.Size = New System.Drawing.Size(605, 363)
-        Me.txbArticuloTextoLista.TabIndex = 17
-        Me.txbArticuloTextoLista.Text = resources.GetString("txbArticuloTextoLista.Text")
+        Me.txbArticuloTextoLista.Size = New System.Drawing.Size(605, 343)
+        Me.txbArticuloTextoLista.TabIndex = 23
+        Me.txbArticuloTextoLista.Text = ""
+        '
+        'InicioBindingSource
+        '
+        Me.InicioBindingSource.DataSource = GetType(BusquedaLeyes.Inicio)
         '
         'Listap
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(931, 426)
-        Me.Controls.Add(Me.btnMasLista)
+        Me.Controls.Add(Me.txbArticuloTextoLista)
+        Me.Controls.Add(Me.cbxListaDocumento)
+        Me.Controls.Add(Me.btnQuitar)
         Me.Controls.Add(Me.lbxArticulosLista)
         Me.Controls.Add(Me.lblArticuloVarLista)
         Me.Controls.Add(Me.lblArticuloTituloLita)
-        Me.Controls.Add(Me.txbArticuloTextoLista)
         Me.Controls.Add(Me.lblArticulosTituloLista)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Listap"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Lista Personal"
+        CType(Me.InicioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -117,6 +133,8 @@ Partial Class Listap
     Friend WithEvents lblArticuloVarLista As Label
     Friend WithEvents lblArticuloTituloLita As Label
     Friend WithEvents lblArticulosTituloLista As Label
-    Friend WithEvents btnMasLista As Button
-    Friend WithEvents txbArticuloTextoLista As TextBox
+    Friend WithEvents btnQuitar As Button
+    Friend WithEvents cbxListaDocumento As ComboBox
+    Friend WithEvents InicioBindingSource As BindingSource
+    Friend WithEvents txbArticuloTextoLista As RichTextBox
 End Class
