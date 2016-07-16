@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SQLite
 
 Public Class Listap
-
+    Dim indexDocumento As Integer
 
 
     Public Sub CargarListaArticulosLeyes(banTodos As Integer, sql As String)
@@ -54,9 +54,13 @@ Public Class Listap
         cbxListaDocumento.Items.Add("Contrato Ley")
         cbxListaDocumento.Items.Add("Ley federal del trabajo")
         cbxListaDocumento.Items.Add("Plan rector")
+
+        indexDocumento = 0
+        cbxListaDocumento.SelectedIndex = indexDocumento
     End Sub
 
     Private Sub cbxListaDocumento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxListaDocumento.SelectedIndexChanged
+        indexDocumento = cbxListaDocumento.SelectedIndex
         Dim documento As String
         documento = "Todos"
 
@@ -137,5 +141,11 @@ Public Class Listap
         conn.Open()
         Command.ExecuteNonQuery()
         conn.Close()
+    End Sub
+
+    Private Sub cbxListaDocumento_TextChanged(sender As Object, e As EventArgs) Handles cbxListaDocumento.TextChanged
+        If Not cbxListaDocumento.FindString(cbxListaDocumento.Text) >= 0 Then
+            cbxListaDocumento.SelectedIndex = indexDocumento
+        End If
     End Sub
 End Class

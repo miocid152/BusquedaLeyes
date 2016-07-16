@@ -118,7 +118,6 @@ Partial Class Inicio
         Me.lvwDocumentos.MultiSelect = False
         Me.lvwDocumentos.Name = "lvwDocumentos"
         Me.lvwDocumentos.Size = New System.Drawing.Size(269, 107)
-        Me.lvwDocumentos.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.lvwDocumentos.TabIndex = 1
         Me.lvwDocumentos.UseCompatibleStateImageBehavior = False
         Me.lvwDocumentos.View = System.Windows.Forms.View.List
