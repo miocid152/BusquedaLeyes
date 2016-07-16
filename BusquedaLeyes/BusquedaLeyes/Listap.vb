@@ -27,7 +27,7 @@ Public Class Listap
                 End If
             End If
         Next
-
+        _dt.DefaultView.Sort = "nombreArticulo ASC"
 
         conn.Close()
 

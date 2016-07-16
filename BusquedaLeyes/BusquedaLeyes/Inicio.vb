@@ -56,9 +56,8 @@ Public Class Inicio
                     CargarListaArticulosLeyes(0, "Select id_leyes,noArticulo,documento From DATOS where documento = '" & documento & "' and id_leyes in (select FK_id_leyes from DATOS_CONCEPTOBUSQUEDA where FK_id_busqueda = " & lbxConcepto.SelectedValue & ")")
                 End If
             End If
-                lbxArticulos.ClearSelected()
+            lbxArticulos.ClearSelected()
         End If
-
 
         'MsgBox("Indice: '" & lvwDocumentos.SelectedIndices.Item(0) & "' Texto: '" & lvwDocumentos.SelectedItems(0).SubItems(0).Text)
     End Sub
@@ -116,7 +115,7 @@ Public Class Inicio
             End If
         Next
 
-
+        _dt.DefaultView.Sort = "nombreArticulo ASC"
         conn.Close()
 
         '-----------------------Bueno
