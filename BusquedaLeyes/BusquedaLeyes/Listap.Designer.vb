@@ -22,7 +22,6 @@ Partial Class Listap
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Listap))
         Me.lbxArticulosLista = New System.Windows.Forms.ListBox()
         Me.lblArticuloVarLista = New System.Windows.Forms.Label()
@@ -31,8 +30,6 @@ Partial Class Listap
         Me.btnQuitar = New System.Windows.Forms.Button()
         Me.cbxListaDocumento = New System.Windows.Forms.ComboBox()
         Me.txbArticuloTextoLista = New System.Windows.Forms.RichTextBox()
-        Me.InicioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.InicioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbxArticulosLista
@@ -99,10 +96,6 @@ Partial Class Listap
         Me.txbArticuloTextoLista.TabIndex = 23
         Me.txbArticuloTextoLista.Text = ""
         '
-        'InicioBindingSource
-        '
-        Me.InicioBindingSource.DataSource = GetType(BusquedaLeyes.Inicio)
-        '
         'Listap
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -123,7 +116,6 @@ Partial Class Listap
         Me.Name = "Listap"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Lista Personal"
-        CType(Me.InicioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -135,6 +127,5 @@ Partial Class Listap
     Friend WithEvents lblArticulosTituloLista As Label
     Friend WithEvents btnQuitar As Button
     Friend WithEvents cbxListaDocumento As ComboBox
-    Friend WithEvents InicioBindingSource As BindingSource
     Friend WithEvents txbArticuloTextoLista As RichTextBox
 End Class
