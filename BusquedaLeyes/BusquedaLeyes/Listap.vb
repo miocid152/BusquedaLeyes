@@ -71,7 +71,7 @@ Public Class Listap
         End If
         If "Contrato Ley".Equals(
                     cbxListaDocumento.SelectedItem.ToString) Then
-            'documento = "COL"
+            documento = "COL"
         End If
         If "Ley federal del trabajo".Equals(
                 cbxListaDocumento.SelectedItem.ToString) Then
