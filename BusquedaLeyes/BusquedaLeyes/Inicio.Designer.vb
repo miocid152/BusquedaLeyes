@@ -114,7 +114,6 @@ Partial Class Inicio
         '
         Me.lvwDocumentos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lvwDocumentos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lvwDocumentos.HideSelection = False
         Me.lvwDocumentos.Location = New System.Drawing.Point(11, 52)
         Me.lvwDocumentos.MultiSelect = False
         Me.lvwDocumentos.Name = "lvwDocumentos"

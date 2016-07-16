@@ -17,6 +17,8 @@ Public Class Inicio
 
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwDocumentos.SelectedIndexChanged
         Dim documento As String
+
+
         documento = "Todos"
         If lvwDocumentos.SelectedItems.Count > 0 Then
             lblDocumentoVar.Text = lvwDocumentos.SelectedItems(0).SubItems(0).Text
@@ -58,9 +60,42 @@ Public Class Inicio
             End If
             lbxArticulos.ClearSelected()
         End If
-
+        changeselectedItemcolour()
         'MsgBox("Indice: '" & lvwDocumentos.SelectedIndices.Item(0) & "' Texto: '" & lvwDocumentos.SelectedItems(0).SubItems(0).Text)
     End Sub
+
+    Public Sub changeselectedItemcolour()
+
+        Try
+            'Get currently selected items index value
+            Dim i = lvwDocumentos.Items.Item(lvwDocumentos.SelectedIndices(0)).Index
+
+            Dim k As Integer = 0
+
+            'loop entire list and reset colors
+            While k <= lvwDocumentos.Items.Count - 1
+                lvwDocumentos.Items(k).BackColor = Color.White 'Color.FromArgb(40, 40, 40)
+                lvwDocumentos.Items(k).ForeColor = Color.Black 'Color.LightGray
+                k = k + 1
+                lvwDocumentos.Items(i).ForeColor = Color.Blue
+            End While
+
+            'set the selected items color
+            Try
+
+                'lvwDocumentos.Items(i).BackColor = Color.Blue 'SystemColors.Highlight
+                'lvwDocumentos.Items(i).ForeColor = Color.Blue
+                'lvwDocumentos.Items(i).Focused = True
+            Catch ex As Exception
+
+            End Try
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+
 
     Public Sub CargarConceptoBusqueda()
 
@@ -89,6 +124,7 @@ Public Class Inicio
         lvwDocumentos.Items.Add("Contrato Ley")
         lvwDocumentos.Items.Add("Ley federal del trabajo")
         lvwDocumentos.Items.Add("Plan rector")
+        'lvwDocumentos.Sort("ASD")
     End Sub
 
     Public Sub CargarListaArticulosLeyes(banTodos As Integer, sql As String)
