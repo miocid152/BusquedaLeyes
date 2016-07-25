@@ -291,4 +291,8 @@ Public Class Inicio
             showFormActiveOrInactive(Listap)
         End If
     End Sub
+
+    Private Sub lblConceptoVar_Click(sender As Object, e As EventArgs) Handles lblConceptoVar.Click
+
+    End Sub
 End Class
