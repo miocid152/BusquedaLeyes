@@ -230,7 +230,10 @@ Public Class Inicio
     End Sub
 
     Private Sub lbxArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxArticulos.SelectedIndexChanged
-        lblArticuloVar.Text = lbxArticulos.SelectedValue
+        lblArticuloVar.Text = lbxArticulos.GetItemText(lbxArticulos.SelectedItem)
+        If lblArticuloVar.Text.Equals("") Then
+            lblArticuloVar.Text = "Ninguno"
+        End If
         cargarContenido(lbxArticulos.SelectedValue)
         habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
 
