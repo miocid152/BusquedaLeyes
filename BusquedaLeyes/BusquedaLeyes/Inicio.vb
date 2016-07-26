@@ -3,13 +3,25 @@
 
 Public Class Inicio
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         CargarConceptoBusqueda()
         CargarTooltips()
         CargarListaDocumento()
         btnAnadirLista.Enabled = False
         btnQuitarLista.Enabled = False
+        modoParametros()
 
     End Sub
+    Private Sub modoParametros()
+        Dim s As String
+        If Environment.GetCommandLineArgs.Length > 1 Then
+            s = Environment.GetCommandLineArgs(1)
+            'MsgBox(s)
+        Else
+            Me.Close()
+        End If
+    End Sub
+
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
