@@ -86,10 +86,10 @@ Public Class Inicio
 
             'loop entire list and reset colors
             While k <= lvwDocumentos.Items.Count - 1
-                lvwDocumentos.Items(k).BackColor = Color.White 'Color.FromArgb(40, 40, 40)
+                'lvwDocumentos.Items(k).BackColor = Color.Transparent 'Color.FromArgb(40, 40, 40)
                 lvwDocumentos.Items(k).ForeColor = Color.Black 'Color.LightGray
                 k = k + 1
-                lvwDocumentos.Items(i).ForeColor = Color.Blue
+                lvwDocumentos.Items(i).ForeColor = Color.White
             End While
 
             'set the selected items color

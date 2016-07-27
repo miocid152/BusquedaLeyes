@@ -38,6 +38,7 @@ Partial Class Listap
         '
         'lbxArticulosLista
         '
+        Me.lbxArticulosLista.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.lbxArticulosLista.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lbxArticulosLista.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbxArticulosLista.FormattingEnabled = True
@@ -60,16 +61,19 @@ Partial Class Listap
         '
         'btnQuitar
         '
+        Me.btnQuitar.BackColor = System.Drawing.Color.DarkGray
         Me.btnQuitar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnQuitar.ForeColor = System.Drawing.Color.Crimson
         Me.btnQuitar.Location = New System.Drawing.Point(3, 387)
         Me.btnQuitar.Name = "btnQuitar"
         Me.btnQuitar.Size = New System.Drawing.Size(314, 30)
         Me.btnQuitar.TabIndex = 21
         Me.btnQuitar.Text = "QuitarArticulo"
-        Me.btnQuitar.UseVisualStyleBackColor = True
+        Me.btnQuitar.UseVisualStyleBackColor = False
         '
         'cbxListaDocumento
         '
+        Me.cbxListaDocumento.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.cbxListaDocumento.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cbxListaDocumento.FormattingEnabled = True
         Me.cbxListaDocumento.Location = New System.Drawing.Point(3, 3)
@@ -79,6 +83,7 @@ Partial Class Listap
         '
         'txbArticuloTextoLista
         '
+        Me.txbArticuloTextoLista.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.txbArticuloTextoLista.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txbArticuloTextoLista.Location = New System.Drawing.Point(3, 3)
         Me.txbArticuloTextoLista.Name = "txbArticuloTextoLista"
@@ -112,7 +117,7 @@ Partial Class Listap
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 420.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(602, 420)
         Me.TableLayoutPanel2.TabIndex = 0
         '
