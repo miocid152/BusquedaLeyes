@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:busquedaLeyesWSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:busquedaLeyesWSDL" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:busquedaLeyesWSDL">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarLicenciaRequest">
+    <wsdl:part name="key" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarLicenciaResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consumirLicenciaRequest">
+    <wsdl:part name="key" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consumirLicenciaResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="BusquedaLeyesPortType">
+    <wsdl:operation name="consultarLicencia">
+      <wsdl:input message="tns:consultarLicenciaRequest" />
+      <wsdl:output message="tns:consultarLicenciaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consumirLicencia">
+      <wsdl:input message="tns:consumirLicenciaRequest" />
+      <wsdl:output message="tns:consumirLicenciaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BusquedaLeyesBinding" type="tns:BusquedaLeyesPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="consultarLicencia">
+      <soap:operation soapAction="http://127.0.0.1/BusquedaLeyes/php/servicioSOAP.php/consultarLicencia" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consumirLicencia">
+      <soap:operation soapAction="http://127.0.0.1/BusquedaLeyes/php/servicioSOAP.php/consumirLicencia" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BusquedaLeyes">
+    <wsdl:port name="BusquedaLeyesPort" binding="tns:BusquedaLeyesBinding">
+      <soap:address location="http://127.0.0.1:8080/BusquedaLeyes/php/servicioSOAP.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

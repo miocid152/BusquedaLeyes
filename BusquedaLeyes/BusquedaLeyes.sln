@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusquedaLeyes", "BusquedaLeyes\BusquedaLeyes.vbproj", "{C11B89BC-3DA4-43F0-B245-6055CC20F3F7}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ValidarLicencia", "ValidarLicencia\ValidarLicencia.vbproj", "{420F2593-D58A-498A-9EB1-62E651EF7933}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C11B89BC-3DA4-43F0-B245-6055CC20F3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C11B89BC-3DA4-43F0-B245-6055CC20F3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C11B89BC-3DA4-43F0-B245-6055CC20F3F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420F2593-D58A-498A-9EB1-62E651EF7933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420F2593-D58A-498A-9EB1-62E651EF7933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420F2593-D58A-498A-9EB1-62E651EF7933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420F2593-D58A-498A-9EB1-62E651EF7933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
