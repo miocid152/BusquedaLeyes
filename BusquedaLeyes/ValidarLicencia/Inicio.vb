@@ -26,11 +26,11 @@ Public Class Inicio
             Me.Close()
         End If
         If Me.licencia.estado.Equals("ERROR") Then
-            MsgBox("Existe un problema en el licenciamiento favor de contactar a los responsables de la aplicacion")
+            MsgBox("Existe un problema en el licenciamiento favor de contactar a los responsables de la aplicación")
             Me.Close()
         End If
         If Me.licencia.estado.Equals("DIFERENTEEQUIPO") Then
-            MsgBox("La instalacion fue en otro equipo de computo favor de contactar a los responsables de la aplicacion")
+            MsgBox("La instalación fue en otro equipo de cómputo favor de contactar a los responsables de la aplicación")
             Me.Close()
         End If
     End Sub
@@ -44,7 +44,7 @@ Public Class Inicio
         Me.activacion = New ActivaconWeb
 
         If activacion.existeArchiv = False Then
-            MsgBox("Revisar la instalacion, No se encontro archivo direccion Web Services")
+            MsgBox("Revisar la instalación, No se encontró archivo dirección Web Services")
             Me.Close()
         End If
 
@@ -52,10 +52,10 @@ Public Class Inicio
 
 
         If (activacion.Getestatus.Equals("Error")) Then
-            MsgBox("Hubo un problema intente de nuevo, si persiste contactar al responsable de la aplicacion")
+            MsgBox("Hubo un problema por favor intente de nuevo, si el problema persiste contactar al responsable de la aplicación")
         End If
         If (activacion.Getestatus.Equals("NoFound")) Then
-            MsgBox("LLave no encontrada Intentar de nuevo, asegurese de tener internet en su equipo")
+            MsgBox("Llave no encontrada favor de intentar de nuevo, asegúrese de tener internet en su equipo")
         End If
 
 
@@ -73,12 +73,12 @@ Public Class Inicio
                     registro.borrarRegistro()
                     activacion.desConsumir()
 
-                    MsgBox("Hubo un error de servicio favor de intentarlo")
+                    MsgBox("Hubo un error de servicio favor de intentarlo de nuevo")
                 End If
 
             Else
                 registro.borrarRegistro()
-                MsgBox("Hubo un error favor de volver a intentarlo")
+                MsgBox("Hubo un error favor de volver a intentarlo de nuevo")
             End If
         End If
 
