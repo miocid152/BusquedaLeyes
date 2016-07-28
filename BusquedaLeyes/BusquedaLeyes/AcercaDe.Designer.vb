@@ -29,6 +29,7 @@ Partial Class AcercaDe
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         CType(Me.ptbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -73,7 +74,7 @@ Partial Class AcercaDe
         Me.txbInformacion.ReadOnly = True
         Me.txbInformacion.Size = New System.Drawing.Size(236, 55)
         Me.txbInformacion.TabIndex = 2
-        Me.txbInformacion.Text = "Aplicación en construcción" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Versión 1.0"
+        Me.txbInformacion.Text = "" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Versión 1.0"
         Me.txbInformacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TableLayoutPanel1
@@ -114,6 +115,7 @@ Partial Class AcercaDe
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.lblTitulo, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.txbInformacion, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnDesactivar, 0, 3)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(251, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -122,8 +124,21 @@ Partial Class AcercaDe
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(242, 291)
         Me.TableLayoutPanel3.TabIndex = 5
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnDesactivar.BackColor = System.Drawing.Color.DarkGray
+        Me.btnDesactivar.ForeColor = System.Drawing.Color.Crimson
+        Me.btnDesactivar.Location = New System.Drawing.Point(50, 201)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(142, 28)
+        Me.btnDesactivar.TabIndex = 3
+        Me.btnDesactivar.Text = "Desactivar licencia"
+        Me.btnDesactivar.UseVisualStyleBackColor = False
         '
         'AcercaDe
         '
@@ -151,4 +166,5 @@ Partial Class AcercaDe
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents btnDesactivar As Button
 End Class
