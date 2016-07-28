@@ -18,6 +18,12 @@
   <wsdl:message name="consumirLicenciaResponse">
     <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
+  <wsdl:message name="cancelarLicenciaRequest">
+    <wsdl:part name="key" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cancelarLicenciaResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
   <wsdl:portType name="BusquedaLeyesPortType">
     <wsdl:operation name="consultarLicencia">
       <wsdl:input message="tns:consultarLicenciaRequest" />
@@ -26,6 +32,10 @@
     <wsdl:operation name="consumirLicencia">
       <wsdl:input message="tns:consumirLicenciaRequest" />
       <wsdl:output message="tns:consumirLicenciaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelarLicencia">
+      <wsdl:input message="tns:cancelarLicenciaRequest" />
+      <wsdl:output message="tns:cancelarLicenciaResponse" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BusquedaLeyesBinding" type="tns:BusquedaLeyesPortType">
@@ -41,6 +51,15 @@
     </wsdl:operation>
     <wsdl:operation name="consumirLicencia">
       <soap:operation soapAction="http://127.0.0.1/BusquedaLeyes/php/servicioSOAP.php/consumirLicencia" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarLicencia">
+      <soap:operation soapAction="http://127.0.0.1/BusquedaLeyes/php/servicioSOAP.php/cancelarLicencia" style="rpc" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:busquedaLeyesWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>

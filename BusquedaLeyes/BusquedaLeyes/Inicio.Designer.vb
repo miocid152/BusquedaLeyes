@@ -78,7 +78,7 @@ Partial Class Inicio
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
         Me.SalirToolStripMenuItem.Text = "&Salir"
         '
         'HerramientasToolStripMenuItem
@@ -91,7 +91,7 @@ Partial Class Inicio
         'VerListaToolStripMenuItem
         '
         Me.VerListaToolStripMenuItem.Name = "VerListaToolStripMenuItem"
-        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.VerListaToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.VerListaToolStripMenuItem.Text = "&Ver lista"
         '
         'AyudaToolStripMenuItem1
@@ -148,7 +148,7 @@ Partial Class Inicio
         Me.lbxConcepto.Location = New System.Drawing.Point(3, 130)
         Me.lbxConcepto.Name = "lbxConcepto"
         Me.lbxConcepto.ScrollAlwaysVisible = True
-        Me.lbxConcepto.Size = New System.Drawing.Size(259, 298)
+        Me.lbxConcepto.Size = New System.Drawing.Size(259, 299)
         Me.lbxConcepto.TabIndex = 2
         '
         'lblDocumento
@@ -250,7 +250,7 @@ Partial Class Inicio
         Me.lbxArticulos.HorizontalScrollbar = True
         Me.lbxArticulos.Location = New System.Drawing.Point(3, 16)
         Me.lbxArticulos.Name = "lbxArticulos"
-        Me.lbxArticulos.Size = New System.Drawing.Size(253, 293)
+        Me.lbxArticulos.Size = New System.Drawing.Size(253, 294)
         Me.lbxArticulos.TabIndex = 15
         '
         'FlowLayoutPanel1
@@ -290,7 +290,7 @@ Partial Class Inicio
         Me.txbArticuloTexto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txbArticuloTexto.Location = New System.Drawing.Point(3, 24)
         Me.txbArticuloTexto.Name = "txbArticuloTexto"
-        Me.txbArticuloTexto.Size = New System.Drawing.Size(530, 371)
+        Me.txbArticuloTexto.Size = New System.Drawing.Size(530, 372)
         Me.txbArticuloTexto.TabIndex = 19
         Me.txbArticuloTexto.Text = ""
         '
@@ -308,7 +308,7 @@ Partial Class Inicio
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1084, 437)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1084, 438)
         Me.TableLayoutPanel1.TabIndex = 20
         '
         'TableLayoutPanel2
@@ -325,7 +325,7 @@ Partial Class Inicio
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(536, 431)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(536, 432)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'TableLayoutPanel3
@@ -340,7 +340,7 @@ Partial Class Inicio
         Me.TableLayoutPanel3.Controls.Add(Me.btnQuitarLista, 4, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnAnadirLista, 1, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 401)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 402)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -398,7 +398,7 @@ Partial Class Inicio
         Me.TableLayoutPanel5.RowCount = 2
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.23762!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.76237!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(265, 431)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(265, 432)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'TableLayoutPanel6
@@ -413,7 +413,7 @@ Partial Class Inicio
         Me.TableLayoutPanel6.RowCount = 2
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(259, 312)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(259, 313)
         Me.TableLayoutPanel6.TabIndex = 17
         '
         'TableLayoutPanel7
@@ -432,7 +432,7 @@ Partial Class Inicio
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(265, 431)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(265, 432)
         Me.TableLayoutPanel7.TabIndex = 2
         '
         'Inicio
@@ -442,7 +442,7 @@ Partial Class Inicio
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ClientSize = New System.Drawing.Size(1084, 461)
+        Me.ClientSize = New System.Drawing.Size(1084, 462)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.MenuPrincipal)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

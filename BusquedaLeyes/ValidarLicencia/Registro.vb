@@ -33,7 +33,6 @@ Public Class Registro
     End Sub
 
     Private Sub construirArchivo()
-        'Dim ruta As String = "prueba.db1"
         Dim exists As Boolean
         If status = "OK" Then
 
@@ -43,7 +42,6 @@ Public Class Registro
                 My.Computer.FileSystem.DeleteFile(licencia.GetRutaArchivo)
             End If
 
-            'Else
             Dim fs As FileStream = File.Create(licencia.GetRutaArchivo)
             Dim info As Byte() = New UTF8Encoding(True).GetBytes(activacion.GetLlave & "|" & licencia.GetNombreEquipo)
             fs.Write(info, 0, info.Length)
@@ -57,13 +55,10 @@ Public Class Registro
             End If
         End If
     End Sub
-    '    Private rutaArchivo As String = "bqales.db1"
-    'Private rutaRegEdit As String = "HKEY_LOCAL_MACHINE\BusqLey"
-    'Private GetArchivoRegedit As String = "llave"
+
     Private Sub construirRegEdit()
 
         Dim list As IList(Of String) = New List(Of String)(licencia.GetRutaRegEdit.Split(New String() {"\"}, StringSplitOptions.None))
-        'MsgBox(list.Item(2).ToString)
 
         My.Computer.Registry.LocalMachine.SetValue(licencia.GetRutaRegEdit, list.Item(2).ToString)
         Me.llave = convertir(activacion.GetLlave, licencia.GetNombreEquipo)
@@ -78,8 +73,6 @@ Public Class Registro
 
         End If
     End Sub
-
-
 
     Private Function convertir(llave As String, maquin1 As String) As String
         Dim retorno As String = ""

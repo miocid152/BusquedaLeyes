@@ -35,6 +35,8 @@ Namespace WebReference
         
         Private consumirLicenciaOperationCompleted As System.Threading.SendOrPostCallback
         
+        Private cancelarLicenciaOperationCompleted As System.Threading.SendOrPostCallback
+        
         Private useDefaultCredentialsSetExplicitly As Boolean
         
         '''<remarks/>
@@ -78,6 +80,9 @@ Namespace WebReference
         
         '''<remarks/>
         Public Event consumirLicenciaCompleted As consumirLicenciaCompletedEventHandler
+        
+        '''<remarks/>
+        Public Event cancelarLicenciaCompleted As cancelarLicenciaCompletedEventHandler
         
         '''<remarks/>
         <System.Web.Services.Protocols.SoapRpcMethodAttribute("http://127.0.0.1/BusquedaLeyes/php/servicioSOAP.php/consultarLicencia", RequestNamespace:="urn:busquedaLeyesWSDL", ResponseNamespace:="urn:busquedaLeyesWSDL")>  _
@@ -130,6 +135,33 @@ Namespace WebReference
             If (Not (Me.consumirLicenciaCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
                 RaiseEvent consumirLicenciaCompleted(Me, New consumirLicenciaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+            End If
+        End Sub
+        
+        '''<remarks/>
+        <System.Web.Services.Protocols.SoapRpcMethodAttribute("http://127.0.0.1/BusquedaLeyes/php/servicioSOAP.php/cancelarLicencia", RequestNamespace:="urn:busquedaLeyesWSDL", ResponseNamespace:="urn:busquedaLeyesWSDL")>  _
+        Public Function cancelarLicencia(ByVal key As String) As <System.Xml.Serialization.SoapElementAttribute("return")> String
+            Dim results() As Object = Me.Invoke("cancelarLicencia", New Object() {key})
+            Return CType(results(0),String)
+        End Function
+        
+        '''<remarks/>
+        Public Overloads Sub cancelarLicenciaAsync(ByVal key As String)
+            Me.cancelarLicenciaAsync(key, Nothing)
+        End Sub
+        
+        '''<remarks/>
+        Public Overloads Sub cancelarLicenciaAsync(ByVal key As String, ByVal userState As Object)
+            If (Me.cancelarLicenciaOperationCompleted Is Nothing) Then
+                Me.cancelarLicenciaOperationCompleted = AddressOf Me.OncancelarLicenciaOperationCompleted
+            End If
+            Me.InvokeAsync("cancelarLicencia", New Object() {key}, Me.cancelarLicenciaOperationCompleted, userState)
+        End Sub
+        
+        Private Sub OncancelarLicenciaOperationCompleted(ByVal arg As Object)
+            If (Not (Me.cancelarLicenciaCompletedEvent) Is Nothing) Then
+                Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
+                RaiseEvent cancelarLicenciaCompleted(Me, New cancelarLicenciaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
         
@@ -188,6 +220,33 @@ Namespace WebReference
      System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.ComponentModel.DesignerCategoryAttribute("code")>  _
     Partial Public Class consumirLicenciaCompletedEventArgs
+        Inherits System.ComponentModel.AsyncCompletedEventArgs
+        
+        Private results() As Object
+        
+        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+            MyBase.New(exception, cancelled, userState)
+            Me.results = results
+        End Sub
+        
+        '''<remarks/>
+        Public ReadOnly Property Result() As String
+            Get
+                Me.RaiseExceptionIfNecessary
+                Return CType(Me.results(0),String)
+            End Get
+        End Property
+    End Class
+    
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")>  _
+    Public Delegate Sub cancelarLicenciaCompletedEventHandler(ByVal sender As Object, ByVal e As cancelarLicenciaCompletedEventArgs)
+    
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0"),  _
+     System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    Partial Public Class cancelarLicenciaCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
         
         Private results() As Object

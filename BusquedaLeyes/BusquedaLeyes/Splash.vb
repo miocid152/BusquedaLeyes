@@ -30,6 +30,27 @@
 
         'Información de Copyright
         Copyright.Text = My.Application.Info.Copyright
+        modoParametros()
+
+    End Sub
+    Private Sub modoParametros()
+        Dim argumento As String
+        If Environment.GetCommandLineArgs.Length > 1 Then
+            argumento = Environment.GetCommandLineArgs(1)
+            Dim list As IList(Of String) = New List(Of String)(argumento.Split(New String() {"|"}, StringSplitOptions.None))
+            If list.Count > 2 Then
+                If Not (list.Item(0).ToString.Equals("ejecutar") And
+                    list.Item(1).ToString.Equals(DateTime.Now.ToString("dd/MM/yyyy")) And
+                     list.Item(2).ToString.Equals("ON")) Then
+                    Me.Close()
+                End If
+            Else
+                Me.Close()
+            End If
+        Else
+            Me.Close()
+        End If
+
     End Sub
 
 End Class

@@ -5,6 +5,8 @@ Public Class Inicio
     Dim licencia As ValidarLicencia
     Dim activacion As ActivaconWeb
     Dim registro As Registro
+    Dim arranqueAplicacion As Process
+    Dim rutaExe As String = "C:\Users\ReyPhantom\Source\Repos\BusquedaLeyes\BusquedaLeyes\BusquedaLeyes\bin\Release\BusquedaLeyes.exe"
 
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -17,7 +19,10 @@ Public Class Inicio
     Private Sub verificar()
         Me.licencia.buscarLincenciamieno()
         If Me.licencia.estado.Equals("OK") Then
-            MsgBox("Abrir Aplicacion")
+            arranqueAplicacion = New Process()
+            arranqueAplicacion.StartInfo.FileName = rutaExe
+            arranqueAplicacion.StartInfo.Arguments = "ejecutar|" & DateTime.Now.ToString("dd/MM/yyyy") & "|ON"
+            arranqueAplicacion.Start()
             Me.Close()
         End If
         If Me.licencia.estado.Equals("ERROR") Then
@@ -62,10 +67,13 @@ Public Class Inicio
             If registro.status.Equals("OK") Then
                 activacion.consumir()
                 If activacion.GetEdoConsumidos.Equals("Consumida") Then
+                    MsgBox("La activación ha sido satisfactoria")
                     verificar()
                 Else
                     registro.borrarRegistro()
-                    MsgBox("Hubo un error de servicio favorde intentarlo")
+                    activacion.desConsumir()
+
+                    MsgBox("Hubo un error de servicio favor de intentarlo")
                 End If
 
             Else

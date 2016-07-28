@@ -3,23 +3,34 @@
 
 Public Class Inicio
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        modoParametros()
         CargarConceptoBusqueda()
         CargarTooltips()
         CargarListaDocumento()
         btnAnadirLista.Enabled = False
         btnQuitarLista.Enabled = False
-        modoParametros()
+
 
     End Sub
     Private Sub modoParametros()
-        Dim s As String
+        Dim argumento As String
         If Environment.GetCommandLineArgs.Length > 1 Then
-            s = Environment.GetCommandLineArgs(1)
-            'MsgBox(s)
+            argumento = Environment.GetCommandLineArgs(1)
+            Dim list As IList(Of String) = New List(Of String)(argumento.Split(New String() {"|"}, StringSplitOptions.None))
+
+            If list.Count > 2 Then
+                If Not (list.Item(0).ToString.Equals("ejecutar") And
+                    list.Item(1).ToString.Equals(DateTime.Now.ToString("dd/MM/yyyy")) And
+                     list.Item(2).ToString.Equals("ON")) Then
+                    Me.Close()
+                End If
+            Else
+                Me.Close()
+            End If
         Else
             Me.Close()
         End If
+
     End Sub
 
 
@@ -307,7 +318,6 @@ Public Class Inicio
         End If
     End Sub
 
-    Private Sub lblConceptoVar_Click(sender As Object, e As EventArgs) Handles lblConceptoVar.Click
 
-    End Sub
+
 End Class

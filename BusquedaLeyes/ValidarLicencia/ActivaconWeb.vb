@@ -24,12 +24,14 @@ Public Class ActivaconWeb
     Public Sub consultar(llave As String)
         Me.llave = llave
 
-        'MsgBox(llave)
-        'MsgBox(jws.consultarLicencia(Me.llave))
-
         estatus = jws.consultarLicencia(Me.llave)
 
     End Sub
+
+    Public Sub desConsumir()
+        edoConsumido = jws.cancelarLicencia(Me.llave)
+    End Sub
+
     Public Sub consumir()
         edoConsumido = jws.consumirLicencia(Me.llave)
     End Sub
