@@ -126,4 +126,12 @@ Public Class ValidarLicencia
     End Property
 
 
+    Public Property GetArchivo() As String
+        Get
+            Return Me.archivo
+        End Get
+        Set(ByVal value As String)
+            Me.archivo = value
+        End Set
+    End Property
 End Class

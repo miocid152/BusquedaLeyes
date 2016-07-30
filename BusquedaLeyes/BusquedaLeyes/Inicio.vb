@@ -2,6 +2,13 @@
 
 
 Public Class Inicio
+
+
+
+    Public Shared llave As String
+
+
+
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         modoParametros()
         CargarConceptoBusqueda()
@@ -24,6 +31,10 @@ Public Class Inicio
                      list.Item(2).ToString.Equals("ON")) Then
                     Me.Close()
                 End If
+                llave = list.Item(3) & "|" &
+                        list.Item(4) & "|" &
+                        list.Item(5) & "|" &
+                        list.Item(6)
             Else
                 Me.Close()
             End If
@@ -233,6 +244,7 @@ Public Class Inicio
 
     Private Sub AcercaDeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem1.Click
         'MÉNU AYUDA>ACERCA DE, ABRE EL FORM SI NO ESTA ABIERTO O CAMBIA EL FOCO A EL SI YA ESTA ABIERTO
+
         showFormActiveOrInactive(AcercaDe)
 
     End Sub

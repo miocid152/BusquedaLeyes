@@ -6,7 +6,7 @@ Public Class Inicio
     Dim activacion As ActivaconWeb
     Dim registro As Registro
     Dim arranqueAplicacion As Process
-    Dim rutaExe As String = "C:\Users\ReyPhantom\Source\Repos\BusquedaLeyes\BusquedaLeyes\BusquedaLeyes\bin\Release\BusquedaLeyes.exe"
+    Dim rutaExe As String = "bin\BusquedaLeyes.exe"
 
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,7 +21,7 @@ Public Class Inicio
         If Me.licencia.estado.Equals("OK") Then
             arranqueAplicacion = New Process()
             arranqueAplicacion.StartInfo.FileName = rutaExe
-            arranqueAplicacion.StartInfo.Arguments = "ejecutar|" & DateTime.Now.ToString("dd/MM/yyyy") & "|ON"
+            arranqueAplicacion.StartInfo.Arguments = "ejecutar|" & DateTime.Now.ToString("dd/MM/yyyy") & "|ON|" & licencia.GetArchivo
             arranqueAplicacion.Start()
             Me.Close()
         End If

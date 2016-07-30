@@ -11,6 +11,7 @@ Public Class Registro
     Public Sub New(licencia As ValidarLicencia)
         Me.licencia = licencia
     End Sub
+
     Public Sub borrarRegistro()
         Dim exists As Boolean
         Dim list As IList(Of String) = New List(Of String)(licencia.GetRutaRegEdit.Split(New String() {"\"}, StringSplitOptions.None))
@@ -18,7 +19,7 @@ Public Class Registro
         Dim readValue = My.Computer.Registry.GetValue(licencia.GetRutaRegEdit, licencia.GetArchivoRegedito, Nothing)
 
         If Not (readValue Is Nothing) Then
-            My.Computer.Registry.LocalMachine.DeleteSubKey(list.Item(2).ToString)
+            My.Computer.Registry.LocalMachine.DeleteValue(licencia.GetRutaRegEdit)
         End If
 
         exists = System.IO.File.Exists(licencia.GetRutaArchivo)
@@ -26,6 +27,8 @@ Public Class Registro
             My.Computer.FileSystem.DeleteFile(licencia.GetRutaArchivo)
         End If
     End Sub
+
+
     Public Sub generarRegistro(activacion As ActivaconWeb)
         Me.activacion = activacion
         construirRegEdit()
