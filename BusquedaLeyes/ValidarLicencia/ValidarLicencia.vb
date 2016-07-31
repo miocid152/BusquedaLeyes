@@ -3,7 +3,7 @@ Imports System.Text
 
 Public Class ValidarLicencia
     Private rutaArchivo As String = "bqales.db1"
-    Private rutaRegEdit As String = "HKEY_LOCAL_MACHINE\SOFTWARE\BusqLey"
+    Private rutaRegEdit As String = "HKEY_CURRENT_USER\BusqLey"
     Private archivoRegedit As String = "llave"
     Private nombreEquipo As String = ""
     Private regedit As String

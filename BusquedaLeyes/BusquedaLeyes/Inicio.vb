@@ -8,7 +8,7 @@ Public Class Inicio
     Public Shared llave As String
 
 
-
+    'Inicio de carga de funciones
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         modoParametros()
         CargarConceptoBusqueda()
@@ -19,6 +19,8 @@ Public Class Inicio
 
 
     End Sub
+
+    'metodo para leer parametros al iniciar
     Private Sub modoParametros()
         Dim argumento As String
         If Environment.GetCommandLineArgs.Length > 1 Then
@@ -44,14 +46,14 @@ Public Class Inicio
 
     End Sub
 
-
+    'menu salir
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
 
+    'Carga de articulos para la Seleccion de documento
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwDocumentos.SelectedIndexChanged
         Dim documento As String
-
 
         documento = "Todos"
         If lvwDocumentos.SelectedItems.Count > 0 Then
@@ -77,7 +79,6 @@ Public Class Inicio
                 lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
                 documento = "PLR"
             End If
-            'MsgBox(lbxConcepto.SelectedValue)
             If "Todos".Equals(
                 lvwDocumentos.SelectedItems(0).SubItems(0).Text) Then
                 If lbxConcepto.SelectedValue = 1 Then
@@ -95,11 +96,10 @@ Public Class Inicio
             lbxArticulos.ClearSelected()
         End If
         changeselectedItemcolour()
-        'MsgBox("Indice: '" & lvwDocumentos.SelectedIndices.Item(0) & "' Texto: '" & lvwDocumentos.SelectedItems(0).SubItems(0).Text)
     End Sub
 
+    'Cambio de colores para la seleccion de listview
     Public Sub changeselectedItemcolour()
-
         Try
             'Get currently selected items index value
             Dim i = lvwDocumentos.Items.Item(lvwDocumentos.SelectedIndices(0)).Index
@@ -116,7 +116,6 @@ Public Class Inicio
 
             'set the selected items color
             Try
-
                 'lvwDocumentos.Items(i).BackColor = Color.Blue 'SystemColors.Highlight
                 'lvwDocumentos.Items(i).ForeColor = Color.Blue
                 'lvwDocumentos.Items(i).Focused = True
@@ -130,7 +129,7 @@ Public Class Inicio
     End Sub
 
 
-
+    'Carga la lista de concepto busqueda
     Public Sub CargarConceptoBusqueda()
 
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
@@ -150,17 +149,20 @@ Public Class Inicio
 
     End Sub
 
+    'Meotodo que cargala listade los documentos
     Public Sub CargarListaDocumento()
         lvwDocumentos.Items.Clear()
-        lvwDocumentos.Items.Add("Todos")
-        lvwDocumentos.Items.Add("Acuerdo para la modernización integral de la ind. azu.")
         lvwDocumentos.Items.Add("Constitución política de los Estados Unidos Mexicanos")
-        lvwDocumentos.Items.Add("Contrato Ley")
         lvwDocumentos.Items.Add("Ley federal del trabajo")
+        lvwDocumentos.Items.Add("Contrato Ley")
+        lvwDocumentos.Items.Add("Acuerdo para la modernización integral de la ind. azu.")
         lvwDocumentos.Items.Add("Plan rector")
+        lvwDocumentos.Items.Add("Todos")
         'lvwDocumentos.Sort("ASD")
     End Sub
 
+
+    'Metodo que es llamado por  Carga de articulos para la Seleccion de documento para generar la lista de articulos
     Public Sub CargarListaArticulosLeyes(banTodos As Integer, sql As String)
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
@@ -176,9 +178,8 @@ Public Class Inicio
 
         For Each row As DataRow In t.Rows
             If t.Rows.Count > 0 Then
-                '
                 If banTodos = 1 Then
-                    _dt.Rows.Add({row("id_leyes"), row("documento") & "   " & row("noArticulo")})
+                    _dt.Rows.Add({row("id_leyes"), acronimos(row("documento")) & "   " & row("noArticulo")})
                 Else
                     _dt.Rows.Add({row("id_leyes"), row("noArticulo")})
                 End If
@@ -188,7 +189,6 @@ Public Class Inicio
         _dt.DefaultView.Sort = "nombreArticulo ASC"
         conn.Close()
 
-        '-----------------------Bueno
         lbxArticulos.ValueMember = "id_leyes"
         lbxArticulos.DisplayMember = "nombreArticulo"
         lbxArticulos.DataSource = _dt
@@ -196,8 +196,30 @@ Public Class Inicio
 
     End Sub
 
-    Public Sub CargarTooltips()
+    'Metodo para cargar acronimo cuano se selcciona Todos en la lista documentos
+    Private Function acronimos(acronimo As String) As String
+        Dim retorno As String
+        retorno = " "
+        If acronimo.Equals("CON") Then
+            retorno = "CONST"
+        End If
+        If acronimo.Equals("ACM") Then
+            retorno = "ACMOD"
+        End If
+        If acronimo.Equals("COL") Then
+            retorno = "CL"
+        End If
+        If acronimo.Equals("LFT") Then
+            retorno = "LFT"
+        End If
+        If acronimo.Equals("PLR") Then
+            retorno = "PLANR"
+        End If
+        Return retorno
+    End Function
 
+    'Metodo para cargar los de tips a cada lista
+    Public Sub CargarTooltips()
         Me.toolTipGeneral.IsBalloon = True
         'TOOLTIP CONCEPTO DE BUSQUEDA
         Me.toolTipGeneral.SetToolTip(lbxConcepto, "Selecciona un concepto de búsqueda")
@@ -208,8 +230,8 @@ Public Class Inicio
 
     End Sub
 
+    'Metodo para verificar la existencia de la ventana abierta en cualquier formulario diferente al inicial
     Public Function isFormActive(_form As Form) As Boolean
-
         'RECIBE UN FORM Y CHECA SI YA SE ENCUENTRA ABIERTO. DEVUELVE BOOLEAN
         For Each f As Form In Application.OpenForms
             If f.Name = _form.Name Then
@@ -220,7 +242,7 @@ Public Class Inicio
         Return False
 
     End Function
-
+    'Carga la ventana de cualquier formulario diferent al inical
     Public Sub showFormActiveOrInactive(_form As Form)
         'FUNCION QUE RECIBE UN FORM QUE INTENTARÁ ABRIR EN CASO DE QUE ESTÉ CERRADO O MOSTRARLO SI YA ESTÁ ABIERTO
         If Not isFormActive(_form) Then
@@ -230,6 +252,7 @@ Public Class Inicio
         End If
     End Sub
 
+    'Metodo para cargar articulos por concepto por libro, este metodo llama al metodo  Carga de articulos para la Seleccion de documento
     Private Sub lbxConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxConcepto.SelectedIndexChanged
         lblConceptoVar.Text = lbxConcepto.GetItemText(lbxConcepto.SelectedItem)
         Me.ListView1_SelectedIndexChanged(sender, e)
@@ -237,19 +260,17 @@ Public Class Inicio
         'MsgBox("El id es: '" & lbxConcepto.SelectedIndex & "' Su valor es: '" & lbxConcepto.SelectedValue & "' y el texto es: " & lbxConcepto.GetItemText(lbxConcepto.SelectedItem))
     End Sub
 
+    'Cargala ventana de MiLista
     Private Sub VerListaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerListaToolStripMenuItem.Click
         showFormActiveOrInactive(Listap)
     End Sub
 
-
+    'MÉNU AYUDA>ACERCA DE, ABRE EL FORM SI NO ESTA ABIERTO O CAMBIA EL FOCO A EL SI YA ESTA ABIERTO
     Private Sub AcercaDeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem1.Click
-        'MÉNU AYUDA>ACERCA DE, ABRE EL FORM SI NO ESTA ABIERTO O CAMBIA EL FOCO A EL SI YA ESTA ABIERTO
-
         showFormActiveOrInactive(AcercaDe)
-
     End Sub
 
-
+    'Metodo ejecutado por el boton añadir lista, añade el articulo a mi lista activando la bandera
     Private Sub btnAnadirLista_Click(sender As Object, e As EventArgs) Handles btnAnadirLista.Click
         agregarQuitarLista(1, lbxArticulos.SelectedValue)
         habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
@@ -259,11 +280,13 @@ Public Class Inicio
         'Next
     End Sub
 
+    'Metodo ejecutado por el boton quitar de la lista, quita el articulo de mi lista desactivado la bandera
     Private Sub btnQuitarLista_Click(sender As Object, e As EventArgs) Handles btnQuitarLista.Click
         agregarQuitarLista(0, lbxArticulos.SelectedValue)
         habilitarDeshabilitarBTN(lbxArticulos.SelectedValue)
     End Sub
 
+    'Metodo que muestra el artiulo eleccionado en el label
     Private Sub lbxArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxArticulos.SelectedIndexChanged
         lblArticuloVar.Text = lbxArticulos.GetItemText(lbxArticulos.SelectedItem)
         If lblArticuloVar.Text.Equals("") Then
@@ -274,6 +297,7 @@ Public Class Inicio
 
     End Sub
 
+    'Metodo que carga el contenido del articulo seleccionado
     Private Sub cargarContenido(id_leyes As Integer)
         Dim Sql = "Select FK_id_leyes,contenido From ContenidoDatos where FK_id_leyes = " & id_leyes
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
@@ -287,10 +311,9 @@ Public Class Inicio
         For Each row As DataRow In t.Rows
             txbArticuloTexto.Rtf = (row("contenido"))
         Next
-
-
-        'MsgBox("SALIO")
     End Sub
+
+    'Metodo que habilita o deshabilita los botones de añadir o quitar de mi lista segun la bandera del articulo
     Private Sub habilitarDeshabilitarBTN(id_leyes As Integer)
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         conn.Open()
@@ -309,7 +332,7 @@ Public Class Inicio
             End If
         Next
     End Sub
-
+    'Metodo que elimina o agrega la bandera al articulo para mi lista
     Private Sub agregarQuitarLista(bandera As Integer, id_leyes As Integer)
         Dim conn As New SQLiteConnection("Data Source=busquedaLCM.sqlite; Version=3; UseUTF8Encoding=True;")
         Dim Sql = "UPDATE DATOS SET bandera_Vista = " & bandera & " WHERE id_leyes = " & id_leyes
@@ -320,6 +343,7 @@ Public Class Inicio
         conn.Close()
     End Sub
 
+    'Metoo para no quitar el focus  de la ventana abierta
     Private Sub Inicio_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         If isFormActive(AcercaDe) Then
             showFormActiveOrInactive(AcercaDe)

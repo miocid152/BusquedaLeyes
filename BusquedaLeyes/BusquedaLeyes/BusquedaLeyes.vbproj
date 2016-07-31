@@ -50,6 +50,9 @@
   <PropertyGroup>
     <ApplicationIcon>Ico.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
@@ -154,6 +157,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="busquedaLCM.sqlite" />
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

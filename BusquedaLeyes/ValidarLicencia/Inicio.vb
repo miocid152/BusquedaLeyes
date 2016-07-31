@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
+'link de referenci https://msdn.microsoft.com/es-es/library/microsoft.win32.registrykey(v=vs.71).aspx
 
 Public Class Inicio
     Dim licencia As ValidarLicencia
@@ -7,6 +8,7 @@ Public Class Inicio
     Dim registro As Registro
     Dim arranqueAplicacion As Process
     Dim rutaExe As String = "bin\BusquedaLeyes.exe"
+
 
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load

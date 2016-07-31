@@ -19,7 +19,7 @@ Public Class Registro
         Dim readValue = My.Computer.Registry.GetValue(licencia.GetRutaRegEdit, licencia.GetArchivoRegedito, Nothing)
 
         If Not (readValue Is Nothing) Then
-            My.Computer.Registry.LocalMachine.DeleteValue(licencia.GetRutaRegEdit)
+            My.Computer.Registry.CurrentUser.DeleteValue(list.Item(1))
         End If
 
         exists = System.IO.File.Exists(licencia.GetRutaArchivo)
@@ -63,18 +63,16 @@ Public Class Registro
 
         Dim list As IList(Of String) = New List(Of String)(licencia.GetRutaRegEdit.Split(New String() {"\"}, StringSplitOptions.None))
 
-        My.Computer.Registry.LocalMachine.SetValue(licencia.GetRutaRegEdit, list.Item(2).ToString)
         Me.llave = convertir(activacion.GetLlave, licencia.GetNombreEquipo)
-        My.Computer.Registry.SetValue(licencia.GetRutaRegEdit,
-                    licencia.GetArchivoRegedito, llave)
-        Dim readValue = My.Computer.Registry.GetValue(licencia.GetRutaRegEdit, licencia.GetArchivoRegedito, Nothing)
+        My.Computer.Registry.SetValue(licencia.GetRutaRegEdit, licencia.GetArchivoRegedito, llave)
+        'Dim readValue = My.Computer.Registry.GetValue(licencia.GetRutaRegEdit, licencia.GetArchivoRegedito, Nothing)
 
-        If readValue Is Nothing Then
-            status = "ERROR"
-        Else
-            status = "OK"
+        'If readValue Is Nothing Then
+        'status = "ERROR"
+        'Else
+        status = "OK"
+        'End If
 
-        End If
     End Sub
 
     Private Function convertir(llave As String, maquin1 As String) As String
